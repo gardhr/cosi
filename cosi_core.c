@@ -43,13 +43,13 @@ SOFTWARE.
 */
 
 static cosi
-cosi_shadow(cosi J)
+ cosi_shadow(cosi J)
 {
   return J ? J : cosi_get_global();
 }
 
 cosi_data
-cosi_unpack(cosi J)
+ cosi_unpack(cosi J)
 {
   J = cosi_shadow(J);
   js_getglobal(J, cosi_runtime_tag);
@@ -59,13 +59,13 @@ cosi_unpack(cosi J)
 }
 
 cosi_bool
-cosi_success(cosi J)
+ cosi_success(cosi J)
 {
   return cosi_unpack(J)->success;
 }
 
 static void
-cosi_reset_error(cosi J, cosi_bool fail, const char* message)
+ cosi_reset_error(cosi J, cosi_bool fail, const char* message)
 {
   cosi_data data = cosi_unpack(J);
   data->success = !fail;
@@ -73,19 +73,19 @@ cosi_reset_error(cosi J, cosi_bool fail, const char* message)
 }
 
 static void
-cosi_reset(cosi J)
+ cosi_reset(cosi J)
 {
   cosi_reset_error(J, cosi_false, NULL);
 }
 
 static void
-cosi_set_error(cosi J, const char* message)
+ cosi_set_error(cosi J, const char* message)
 {
   cosi_reset_error(J, cosi_true, message);
 }
 
 cosi
-cosi_destroy(cosi J)
+ cosi_destroy(cosi J)
 {
   J = cosi_shadow(J);
   if (J == cosi_get_global())
@@ -96,7 +96,7 @@ cosi_destroy(cosi J)
 }
 
 cosi_bool
-cosi_extend(cosi J, const char* symbol, void (*code)(cosi))
+ cosi_extend(cosi J, const char* symbol, void (*code)(cosi))
 {
   J = cosi_shadow(J);
   js_newcfunction(J, code, symbol, 0);
@@ -105,7 +105,7 @@ cosi_extend(cosi J, const char* symbol, void (*code)(cosi))
 }
 
 cosi_bool
-cosi_define(cosi J, const char* symbol, double value)
+ cosi_define(cosi J, const char* symbol, double value)
 {
   J = cosi_shadow(J);
   js_newnumber(J, value);
@@ -114,13 +114,13 @@ cosi_define(cosi J, const char* symbol, double value)
 }
 
 cosi_bool
-cosi_declare(cosi J, const char* symbol, void* value)
+ cosi_declare(cosi J, const char* symbol, void* value)
 {
   return cosi_define(J, symbol, (size_t)value);
 }
 
 cosi_bool
-cosi_run(cosi J, const char* script)
+ cosi_run(cosi J, const char* script)
 {
   J = cosi_shadow(J);
   cosi_reset(J);
@@ -129,7 +129,7 @@ cosi_run(cosi J, const char* script)
 }
 
 cosi_bool
-cosi_eval(cosi J, const char* script)
+ cosi_eval(cosi J, const char* script)
 {
  char
   format[] = "eval('%s')",
@@ -139,7 +139,7 @@ cosi_eval(cosi J, const char* script)
 }
 
 cosi_bool
-cosi_include(cosi J, const char* file)
+ cosi_include(cosi J, const char* file)
 {
  char
   format[] = "eval(file_to_text('%s'))",
@@ -149,7 +149,7 @@ cosi_include(cosi J, const char* file)
 }
 
 void*
-cosi_call(cosi J, const char* script)
+ cosi_call(cosi J, const char* script)
 {
 /*
  FIXME
@@ -179,7 +179,7 @@ cosi_call(cosi J, const char* script)
 }
 
 void
-cosi_main(cosi J, char** argv, char** envp)
+ cosi_main(cosi J, char** argv, char** envp)
 {
   cosi_data data = cosi_unpack(J);
   data->argv = argv;
@@ -187,39 +187,39 @@ cosi_main(cosi J, char** argv, char** envp)
 }
 
 static void
-cosi_panic(cosi J)
+ cosi_panic(cosi J)
 {
   cosi_set_error(J, "WARNING: cosi_panic invoked!");
 }
 
 static void
-cosi_report(cosi J, char const* message)
+ cosi_report(cosi J, char const* message)
 {
   cosi_set_error(J, message);
 }
 
 const char*
-cosi_message(cosi J)
+ cosi_message(cosi J)
 {
   return cosi_unpack(J)->debug;
 }
 
 void
-cosi_argv(js_State* state)
+ cosi_argv(js_State* state)
 {
   char** result = cosi_unpack(state)->argv;
   cosi_pushpointer(state, result);
 }
 
 void
-cosi_envp(js_State* state)
+ cosi_envp(js_State* state)
 {
   char** result = cosi_unpack(state)->envp;
   cosi_pushpointer(state, result);
 }
 
 cosi
-cosi_create_from(js_Alloc alloc, void* context, int flags)
+ cosi_create_from(js_Alloc alloc, void* context, int flags)
 {
   cosi J = js_newstate(alloc, context, flags);
   cosi_data data = js_malloc(J, sizeof(*data));
@@ -255,13 +255,13 @@ if(!cosi_run(J, builtins))
 }
 
 cosi
-cosi_create(void)
+ cosi_create(void)
 {
   return cosi_create_from(NULL, NULL, JS_STRICT);
 }
 
 static cosi
-cosi_access_global(cosi J, cosi_bool set)
+ cosi_access_global(cosi J, cosi_bool set)
 {
   static cosi global = NULL;
   if (set)
@@ -272,13 +272,13 @@ cosi_access_global(cosi J, cosi_bool set)
 }
 
 void
-cosi_set_global(cosi J)
+ cosi_set_global(cosi J)
 {
   cosi_access_global(J, cosi_true);
 }
 
 cosi
-cosi_get_global(void)
+ cosi_get_global(void)
 {
   return cosi_access_global(NULL, cosi_false);
 }
