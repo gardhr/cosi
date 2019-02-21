@@ -54,7 +54,7 @@ SOFTWARE.
 
 #ifdef cosi_debugging
 void
-cosi_debug(js_State* state);
+ cosi_debug(js_State* state);
 #endif
 
 #endif // cosi_includes_h_included
