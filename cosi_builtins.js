@@ -352,3 +352,33 @@ function ascii_to_text(ascii)
  free(bytes)
  return text
 }
+
+function to_text_array(argv, skip)
+{
+ var tab = []
+ var align = sizeof('void*')
+ var args = argv
+ if(skip)
+  args += align
+ for(;;)
+ {
+  var ptr = get_memory(args)
+  if(ptr == NULL)
+   break
+  tab.push(bytes_to_text(ptr))
+  args += align
+ }
+ return tab
+}
+
+function script_path()
+{
+ return bytes_to_text(get_memory(argv()))
+}
+
+function argv_to_text_array(skip)
+{
+ if(skip === undefined)
+  skip = true
+ return to_text_array(argv(), skip)
+}
