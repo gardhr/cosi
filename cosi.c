@@ -38,8 +38,10 @@ int
  if (argc == 1)
   argv[offset = 0] = "main.js";
  cosi_main(NULL, &argv[offset], envp);
+#ifdef cosi_extension
  if(!cosi_include(NULL, "cosi_extension.js"))
   fprintf(stderr, "WARNING: failed to load 'cosi_extension.js'");
+#endif
  char 
   * file = argv[offset],
   format[] = 

@@ -13,7 +13,7 @@
 #include "cosi.h"
 
 void
-cosi_debug(js_State* state)
+ cosi_debug(js_State* state)
 {
   size_t count = js_gettop(state);
   for (size_t idx = 0; idx < count; ++idx)
