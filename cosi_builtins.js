@@ -69,7 +69,8 @@ function caught(routine, handler)
  }
  catch(error)
  {
-  return through(handler)(error)
+  through(handler)(error)
+  return error
  }
 }
 
@@ -199,7 +200,7 @@ function text_to_file(text, file)
 function text_to_function(script, imports)
 {
  var result = null
- caught(function(){
+ escape(function(){
   var bundled = 'return function(){' + script + '}'
   var invoke = new Function('imports', bundled)
   result = invoke(imports)
@@ -254,8 +255,7 @@ function file_to_object(file)
 function print_partial()
 {
  var args = arguments
- var next = function(index)
- {
+ loop(args, function(index){
   if(index != 0)
    put(' ')
   var arg = args[index];
@@ -264,8 +264,7 @@ function print_partial()
   else if(arg === undefined)
    arg = '(undefined)'
   put(arg.toString())
- }
- loop(arguments, next)
+ })
 }
 
 function print()
@@ -286,9 +285,13 @@ function gets_bytes(stream)
  {
   var max = size
   size *= 2
-  data = realloc(data, size + 1)
-  if(data == NULL)
+  var block = realloc(data, size + 1)
+  if(block == NULL)
+  {
+   free(data)
    return NULL
+  }
+  data = block
   var line = data + sum
   if(!fgets(line, max, stream))
    break
@@ -323,18 +326,13 @@ function prompt()
  return gets_text()
 }
 
-/*
- TODO: snip?
-*/
 function text_to_ascii(text)
 {
  var chars = [] 
  var data = text_to_bytes(text)
- var push = function(index)
- { 
+ loop(strlen(data), function(index){ 
   chars.push(get_byte(data, index)) 
- }
- loop(strlen(data), push)
+ })
  free(data)
  return chars
 }
@@ -342,22 +340,19 @@ function text_to_ascii(text)
 function ascii_to_text(ascii)
 {
  var bytes = malloc(ascii.length + 1)
- var place = function(counter)
- {
-  set_byte(bytes, counter, ascii[counter])
- }
  set_byte(bytes, ascii.length, 0)
- loop(ascii, place)
+ loop(ascii, function(counter){
+  set_byte(bytes, counter, ascii[counter])
+ })
  var text = bytes_to_text(bytes)
  free(bytes)
  return text
 }
 
-function to_text_array(argv, skip)
+function to_text_array(args, skip)
 {
  var tab = []
  var align = sizeof('void*')
- var args = argv
  if(skip)
   args += align
  for(;;)
@@ -371,14 +366,14 @@ function to_text_array(argv, skip)
  return tab
 }
 
-function script_path()
-{
- return bytes_to_text(get_memory(argv()))
-}
-
 function argv_to_text_array(skip)
 {
  if(skip === undefined)
   skip = true
  return to_text_array(argv(), skip)
+}
+
+function script_path()
+{
+ return bytes_to_text(get_memory(argv()))
 }

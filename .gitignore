@@ -1,6 +1,6 @@
 ignore.*
 cosi
-
+/build
 # Prerequisites
 *.d
 
