@@ -27,19 +27,12 @@ SOFTWARE.
 /*
  Imports
 */
+
 var imports = {}
 
 /*
  Utilities
 */
-
-function through(thing)
-{
- return (thing instanceof Function) ?
-  thing : thing ? 
-   function(){ return thing } :
-   function(value){ return value }
-}
 
 function egress(exception)
 { 
@@ -67,10 +60,11 @@ function caught(routine, handler)
   routine()
   return undefined
  }
- catch(error)
+ catch(exception)
  {
-  through(handler)(error)
-  return error
+  if(handler)
+   handler(exception)
+  return exception
  }
 }
 
@@ -94,7 +88,8 @@ function escape(routine, handler)
  {
   if(exception instanceof egress)
    return true
-  through(handler)(exception)
+  if(handler)
+   handler(exception)
   egress(exception) 
  }
 }
@@ -104,12 +99,12 @@ function loop(control, action)
  if(!control)
   return
  if(control === true)
-  control = Number.MAX_SAFE_INTEGER
+  control = Infinity
  var
-  result = undefined,
+  result,
   count = control.length || 
    control.end || control.finish || 
-   control || 0,
+   control,
   start = control.begin 
    || control.start || 0
  escape(function(){
@@ -287,25 +282,28 @@ function gets_bytes(stream)
  var newline = 0xa
  if(!stream)
   stream = stdin
- var bail = loop(true, function() {
-  var max = size
+ var pass = loop(true, function() {
+  var 
+   max = size
   size *= 2
   var block = realloc(data, size + 1)
   if(block == NULL)
-   return true
+   return false
   data = block
-  var line = data + sum
+  var 
+   line = data + sum
   if(!fgets(line, max, stream))
-   return
-  var length = strlen(line)
-  var last = length - 1 
+   return true
+  var 
+   length = strlen(line),
+   last = length - 1 
   if(get_byte(line, last) == newline) 
    set_byte(line, last--, 0)
-  sum += last + 1
+  sum += (last + 1)
   if(length != max)
-   return
+   return true
  })
- if(bail || sum == 0)
+ if(!pass || sum == 0)
  {
   free(data)
   return NULL 
