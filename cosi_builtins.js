@@ -3,7 +3,7 @@ MIT License
 
 Cosi (Javascript Native Runtime)
 
-Copyright (c) 2017 Sebastian Garth
+Copyright (c) 2019 Sebastian Garth
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -33,11 +33,11 @@ var imports = {}
  Utilities
 */
 
-function through(action)
+function through(thing)
 {
- return (action instanceof Function) ?
-  action : action ? 
-   function(){ return action } :
+ return (thing instanceof Function) ?
+  thing : thing ? 
+   function(){ return thing } :
    function(value){ return value }
 }
 
@@ -101,11 +101,17 @@ function escape(routine, handler)
 
 function loop(control, action)
 {
+ if(!control)
+  return
+ if(control === true)
+  control = Number.MAX_SAFE_INTEGER
  var
-  result, 
-  count = control.length || control.end || 
-   control.finish || control || 0,
-  start = control.begin || control.start || 0
+  result = undefined,
+  count = control.length || 
+   control.end || control.finish || 
+   control || 0,
+  start = control.begin 
+   || control.start || 0
  escape(function(){
   for(var idx = start; idx < count; ++idx)
   {
@@ -281,29 +287,25 @@ function gets_bytes(stream)
  var newline = 0xa
  if(!stream)
   stream = stdin
- for(;;)
- {
+ var bail = loop(true, function() {
   var max = size
   size *= 2
   var block = realloc(data, size + 1)
   if(block == NULL)
-  {
-   free(data)
-   return NULL
-  }
+   return true
   data = block
   var line = data + sum
   if(!fgets(line, max, stream))
-   break
+   return
   var length = strlen(line)
   var last = length - 1 
   if(get_byte(line, last) == newline) 
    set_byte(line, last--, 0)
   sum += last + 1
   if(length != max)
-   break
- }
- if(sum == 0)
+   return
+ })
+ if(bail || sum == 0)
  {
   free(data)
   return NULL 

@@ -3,7 +3,7 @@ MIT License
 
 Cosi (Javascript Native Runtime)
 
-Copyright (c) 2017 Sebastian Garth
+Copyright (c) 2019 Sebastian Garth
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
