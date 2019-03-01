@@ -24,11 +24,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#include "cosi.h"
-
-#ifdef cosi_automagic
+#ifndef cosi_standard_linkage
 #include "cosi_core.c"
-#endif
+#endif 
 
 int 
  main(int argc, char** argv, char** envp)
@@ -38,10 +36,6 @@ int
  if (argc == 1)
   argv[offset = 0] = "main.js";
  cosi_main(NULL, &argv[offset], envp);
-#ifdef cosi_extension
- if(!cosi_include(NULL, "cosi_extension.js"))
-  fprintf(stderr, "WARNING: failed to load 'cosi_extension.js'");
-#endif
  char 
   * file = argv[offset],
   format[] = 

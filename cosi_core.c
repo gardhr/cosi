@@ -26,7 +26,7 @@ SOFTWARE.
 
 #include "cosi.h"
 
-#ifdef cosi_automagic
+#ifndef cosi_standard_linkage
 #include "cosi_internal.c"
 #include "mujs/one.c"
 #endif
@@ -282,15 +282,3 @@ cosi
 {
   return cosi_access_global(NULL, cosi_false);
 }
-
-/*
- This is automatically
- generated...do not edit!
-*/
-#ifdef cosi_debugging
-#include "cosi_debug.c"
-#endif
-/*
- That was automatically
- generated...do not edit!
-*/

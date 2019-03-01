@@ -29,9 +29,6 @@ SOFTWARE.
  generated...do not edit!
 */
 
-#ifdef cosi_debugging
-cosi_extend(J, "debug", cosi_debug);
-#endif
 cosi_extend(J, "sizeof", cosi_sizeof);
 cosi_extend(J, "put", cosi_put);
 cosi_extend(J, "fput", cosi_fput);

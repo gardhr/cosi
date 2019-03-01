@@ -26,29 +26,6 @@ SOFTWARE.
 
 #ifndef cosi_h_included
 #define cosi_h_included
-/*
-  Special defines - toggle as desired...
-
- - Undefine "cosi_automagic" if compiling
-   in the standard fashion (ie: separate
-   object files for multi-unit projects)
-
- - Define "cosi_debugging" to turn ON
-   the Javascript "debug()" function (you
-   can modify the C code that controls it by 
-   editing the source file "cosi_debug.c")
-
--  Define "cosi_extension" to extend the 
-   virtual machine for testing/customization
-*/
-
-#define cosi_automagic
-#define cosi_debugging
-#define cosi_extension
-
-/*
- ...
-*/
 
 #include "cosi_internal.h"
 
