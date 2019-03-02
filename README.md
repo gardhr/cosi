@@ -123,21 +123,35 @@ Same as above but using the contents of a file instead of a String.
 
 `function include(file)`
 
+Imports a file directly into te current global space (much like a C include file).
+
 `function sizeof(typename)`
+
+Returns the size of some native C type. If typename contains an asterisk ("\*") then the size of a pointer is returned.
 
 `function put(pointer)`
 
-`function fput(pointer)`
+Prints a C string (or even a Javascript String). No other types are allowed for this low-level function.
+
+`function fput(stream, pointer)`
+
+Prints a C string (or even a Javascript String) to a C file stream. No other types are allowed for this low-level function.
 
 `function get_byte(pointer, index)`
 
+Returns the byte at "index" of a raw C buffer.
+
 `function set_byte(pointer, index, value)`
+
+Sets the byte at "index" of a raw C buffer to "value". 
 
 `function get_memory(pointer, index, width)`
 
+Returns the element at "index" of a raw C buffer. The "width" parameter determines how the pointer is dereferenced and MUST be the size of some native C type (int, double, void*, etc).
+
 `function set_memory(pointer, index, value, width)`
 
-
+Sets the element at "index" of a raw C buffer to "value". The "width" parameter determines how the pointer is dereferenced and MUST be the size of some native C type.
 
 `function argv()`
 
@@ -183,7 +197,6 @@ Helper function to convert a String to an Array of Numbers.
 
 Helper function to convert an Array of Numbers to String.
 
-<br>
 <br>
 
 `Powered by` [MuJS](https://mujs.com) 
