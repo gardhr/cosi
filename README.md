@@ -5,12 +5,16 @@ This software is released under [a dual MIT/ISC license](https://raw.githubuserc
 
 # Cosi (Javascript Native Runtime)
 
-The Cosi library is a platform powered by the MuJS Javascript (ECMA-262[2015]) engine which provides a direct interface to most of the ISO C standard API. 
+Based on the [MuJS](https://mujs.com) Javascript \[ECMA-262 (2015)\] engine, Cosi provides a direct interface to most of the ISO C standard API. The library has a remarkably small footprint and will compile on just about any platform. 
 
-## Overview
+## Status
+
+Cosi is still very much in the early stages of development. That said even in its current state the code base is quite stable and usable.  
+
+## Caveats
 
 Proper use of Cosi requires at the very least a fairly basic understanding of the C programming language.
-The library performs little to no preprocessing of arguments passed to the C API functions and so naturally if used incorrectly problems such as abnormal program termination can easily arise. Bottom line C API functions should be used with extreme care. If at all practical, please consider wrapping raw C calls inside of "safer" Javascript versions of those functions.      
+The library performs little to no preprocessing of arguments passed to the C API functions and so naturally if used incorrectly problems such as abnormal program termination can easily arise. Bottom line C API functions should be used with extreme care. If at all practical, please consider wrapping raw C calls inside of "safer" Javascript versions of those functions.
 
 ## C API
 
@@ -203,11 +207,3 @@ Helper function to convert a String to an Array of Numbers.
 `function ascii_to_text(ascii)`
 
 Helper function to convert an Array of Numbers to String.
-
-<br>
-
-`Powered by` [MuJS](https://mujs.com) 
-
-<br>
-
-<img src="https://mujs.com/images/mujs_logo_web.png">
