@@ -63,6 +63,90 @@ Returns the result of the last Cosi operation.
 
 ## Javascript API
 
+`function file_to_bytes(file)`
+
+Returns a pointer to a buffer containing the contents of a file. Memory management of the buffer is the responsibility of the caller (use the free() function). 
+
+`function file_to_text(file)`
+
+Returns a String containing the contents of a file.
+
+`function bytes_to_file(bytes, file, len)`
+
+Writes the contents of a buffer to a file. If "len" is zero then strlen(buffer) is used. 
+
+`function text_to_file(text, file)`
+
+Writes the contents of a Strinng to a file. 
+
+`function text_to_function(script, imports)`
+
+Returns a Function object that encapsulates a script and its imports.
+
+`function file_to_function(file, imports)`
+
+Same as above but using the contents of a file instead of a String. 
+
+`function text_to_task(script, imports)`
+
+Runs a script with the given imports. Returns false on error.
+
+`function file_to_task(file, imports)`
+
+Same as above but using the contents of a file instead of a String. 
+
+`function text_to_module(script, imports)`
+
+Returns a reference to a loaded script.
+
+`function file_to_module(file, imports)`
+
+Same as above but using the contents of a file instead of a String. 
+
+`function text_to_object(script, imports)`
+
+Returns a reference to a loaded object. Script should be in the form of "{ foo: "bar", baz: 1024 }".
+
+`function file_to_object(file, imports)`
+
+Same as above but using the contents of a file instead of a String. 
+
+`function print_partial(args)`
+
+Prints the arguments, inserting a space between each one.
+
+`function print(args)`
+
+Same as above but prints a newline character after all arguments have been processed.
+
+`function gets_bytes(stream)`
+
+Returns a pointer to a buffer containing a line typed by the user (or NULL if the input is empty). Memory management of the buffer is the responsibility of the caller (use the free() function). If unspecified, the default input stream is "stdin".
+
+`function gets_text(stream)`
+
+Returns a String containing a line typed by the user (or NULL if the input is empty). If unspecified, the default input stream is "stdin".
+
+`function prompt(args)`
+
+Prints all of the args and then waits for user input from "stdin". Returns a String containing the line typed by the user (or NULL if the input is empty).
+
+`function to_text_array(array, skip)`
+
+Converts a C array of string pointers to an array of Strings. If "skip" is true then the first element of the C array is not copied (useful when used with argv() for example)
+
+`function script_path()`
+
+Returns the path of the current script, if available. Fails if argv() has not set by the calling C environmet (see cosi_main from the Cosi C API).  
+
+`function text_to_ascii(text)`
+
+Helper function to convert a String to an Array of Numbers.
+
+`function ascii_to_text(ascii)`
+
+Helper function to convert an Array of Numbers to String.
+
 ## License
 
 This library is released under [a dual MIT/ISC license](https://raw.githubusercontent.com/gardhr/cosi/master/LICENSE). <img align="right" src="https://opensource.org/trademarks/opensource/OSI-Approved-License-100x137.png">
