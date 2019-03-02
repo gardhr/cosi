@@ -65,6 +65,14 @@ Returns the result of the last Cosi operation.
 
 ## Javascript API
 
+`function text_to_bytes(text)`
+
+Returns a pointer to a buffer containing the contents of a String. Memory management of the buffer is the responsibility of the caller (use the free() function). 
+
+`function bytes_to_text(bytes, len)`
+
+Returns a String containing the contents of a buffer. If "len" is zero then strlen(buffer) is used. 
+
 `function file_to_bytes(file)`
 
 Returns a pointer to a buffer containing the contents of a file. Memory management of the buffer is the responsibility of the caller (use the free() function). 
@@ -112,6 +120,32 @@ Returns a reference to a loaded object. Script should be in the form of "{ foo: 
 `function file_to_object(file, imports)`
 
 Same as above but using the contents of a file instead of a String. 
+
+`function include(file)`
+
+`function sizeof(typename)`
+
+`function put(pointer)`
+
+`function fput(pointer)`
+
+`function get_byte(pointer, index)`
+
+`function set_byte(pointer, index, value)`
+
+`function get_memory(pointer, index, width)`
+
+`function set_memory(pointer, index, value, width)`
+
+
+
+`function argv()`
+
+Fails if argv has not set by the calling C environmet (see cosi_main from the Cosi C API). 
+
+`function envp()`
+
+Fails if envp has not set by the calling C environmet (see cosi_main from the Cosi C API).  
 
 `function print_partial(args)`
 
