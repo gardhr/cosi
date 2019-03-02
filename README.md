@@ -5,6 +5,6 @@
 
 ## License
 
-This library is released under [a dual MIT/ISC license](https://opensource.org/licenses/MIT) and [ISC]((https://raw.githubusercontent.com/gardhr/cosi/master/LICENSE) licenses. <img align="right" src="https://opensource.org/trademarks/opensource/OSI-Approved-License-100x137.png">
+This library is released under [a dual MIT/ISC license](https://raw.githubusercontent.com/gardhr/cosi/master/LICENSE). <img align="right" src="https://opensource.org/trademarks/opensource/OSI-Approved-License-100x137.png">
 
 `Powered by` [MuJS](https://mujs.com) <img align="right" src="https://mujs.com/images/mujs_logo_web.png">
