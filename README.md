@@ -152,4 +152,4 @@ Helper function to convert an Array of Numbers to String.
 <br/>
 <br/>
 
-`Powered by` [MuJS](https://mujs.com) <img src="https://mujs.com/images/mujs_logo_web.png">
+`Powered by` [MuJS](https://mujs.com) <img align="bottom" src="https://mujs.com/images/mujs_logo_web.png">
