@@ -166,11 +166,11 @@ Sets the element at "index" of a raw C buffer to "value". The "width" parameter 
 
 `function argv()`
 
-Fails if argv has not set by the calling C environmet (see cosi_main from the Cosi C API). 
+Fails if argv has not set by the calling C environment (see cosi_main from the Cosi C API). 
 
 `function envp()`
 
-Fails if envp has not set by the calling C environmet (see cosi_main from the Cosi C API).  
+Fails if envp has not set by the calling C environment (see cosi_main from the Cosi C API).  
 
 `function print_partial(args)`
 
@@ -198,7 +198,7 @@ Converts a C array of string pointers to an array of Strings. If "skip" is true 
 
 `function script_path()`
 
-Returns the path of the current script, if available. Fails if argv() has not set by the calling C environmet (see cosi_main from the Cosi C API).  
+Returns the path of the current script, if available. Fails if argv() has not set by the calling C environment (see cosi_main from the Cosi C API).  
 
 `function text_to_ascii(text)`
 
