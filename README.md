@@ -1,6 +1,8 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![GitHub license](https://img.shields.io/badge/license-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 
+`Powered by` [MuJS](https://mujs.com) <img align="right" src="https://mujs.com/images/mujs_logo_web.png">
+
 # Cosi (Javascript Native Runtime)
 
 ## C API
@@ -77,7 +79,7 @@ Writes the contents of a buffer to a file. If "len" is zero then strlen(buffer) 
 
 `function text_to_file(text, file)`
 
-Writes the contents of a Strinng to a file. 
+Writes the contents of a String to a file. 
 
 `function text_to_function(script, imports)`
 
@@ -133,7 +135,7 @@ Prints all of the args and then waits for user input from "stdin". Returns a Str
 
 `function to_text_array(array, skip)`
 
-Converts a C array of string pointers to an array of Strings. If "skip" is true then the first element of the C array is not copied (useful when used with argv() for example)
+Converts a C array of string pointers to an array of Strings. If "skip" is true then the first element of the C array is not copied (useful when used with argv() for example).
 
 `function script_path()`
 
@@ -150,5 +152,3 @@ Helper function to convert an Array of Numbers to String.
 ## License
 
 This library is released under [a dual MIT/ISC license](https://raw.githubusercontent.com/gardhr/cosi/master/LICENSE). <img align="right" src="https://opensource.org/trademarks/opensource/OSI-Approved-License-100x137.png">
-
-`Powered by` [MuJS](https://mujs.com) <img align="right" src="https://mujs.com/images/mujs_logo_web.png">
