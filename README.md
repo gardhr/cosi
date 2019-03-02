@@ -1,8 +1,6 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![GitHub license](https://img.shields.io/badge/license-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 
-`Powered by` [MuJS](https://mujs.com) <img align="left" src="https://mujs.com/images/mujs_logo_web.png">
-
 # Cosi (Javascript Native Runtime)
 
 ## C API
@@ -152,3 +150,5 @@ Helper function to convert an Array of Numbers to String.
 ## License
 
 This library is released under [a dual MIT/ISC license](https://raw.githubusercontent.com/gardhr/cosi/master/LICENSE). <img align="right" src="https://opensource.org/trademarks/opensource/OSI-Approved-License-100x137.png">
+
+`Powered by` [MuJS](https://mujs.com) <img align="left" src="https://mujs.com/images/mujs_logo_web.png">
