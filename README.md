@@ -14,7 +14,7 @@ Cosi is still very much in the early stages of development. That said even in it
 ## Caveats
 
 Proper use of Cosi requires at the very least a fairly basic understanding of the C programming language.
-The library performs little to no preprocessing of arguments passed to the C API functions and so naturally if used incorrectly problems such as abnormal program termination can easily arise. Bottom line C API functions should be used with extreme care. If at all practical, please consider wrapping raw C calls inside of "safer" Javascript versions of those functions.
+The library performs little to no preprocessing of arguments passed to the C API functions and so naturally if used incorrectly problems such as abnormal program termination can easily arise. Bottom line, C API functions should be used with extreme care. Consider wrapping raw C calls inside of "safer" Javascript versions of those functions.
 
 ## C API
 
