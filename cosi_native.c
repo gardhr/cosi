@@ -168,7 +168,9 @@ void
     ((double*)data)[index] = value;
   else {
     int size = real;
-    if (size == sizeof(unsigned char))
+    if (size == 0)
+      ((void**)data)[index] = (void*)((size_t)value); 
+    else if (size == sizeof(unsigned char))
       ((unsigned char*)data)[index] = value;
     else if (size == -sizeof(char))
       ((char*)data)[index] = value;
@@ -188,8 +190,6 @@ void
       ((unsigned long long*)data)[index] = value;
     else if (size == -sizeof(long long))
       ((long long*)data)[index] = value;
-    else if (size == 0)
-      ((void**)data)[index] = (void*)((size_t)value);
   }
   js_pushundefined(state);
 }
@@ -209,7 +209,9 @@ cosi_get_memory(js_State* state)
     value = ((double*)data)[index];
   else {
     int size = real;
-    if (size == sizeof(unsigned char))
+    if (size == 0)
+      value = (size_t)(((void**)data)[index]);
+    else if (size == sizeof(unsigned char))
       value = ((unsigned char*)data)[index];
     else if (size == -sizeof(char))
       value = ((char*)data)[index];
@@ -229,8 +231,6 @@ cosi_get_memory(js_State* state)
       value = ((unsigned long long*)data)[index];
     else if (size == -sizeof(long long))
       value = ((long long*)data)[index];
-    else if (size == 0)
-      value = (size_t)(((void**)data)[index]);
   }
   js_pushnumber(state, value);
 }
