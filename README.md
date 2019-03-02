@@ -1,7 +1,7 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![GitHub license](https://img.shields.io/badge/license-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 
-`Powered by` [MuJS](https://mujs.com) <img align="right" src="https://mujs.com/images/mujs_logo_web.png">
+`Powered by` [MuJS](https://mujs.com) <img align="left" src="https://mujs.com/images/mujs_logo_web.png">
 
 # Cosi (Javascript Native Runtime)
 
