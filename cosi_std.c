@@ -853,6 +853,50 @@ void
  cosi_pushnumber(J, errno);
 }
 
+#ifndef cosi_no_posix
+
+// dirent.h
+
+void
+ cosi_opendir(js_State* J)
+{
+ char* name = cosi_tostring(J, 1);
+ cosi_pushpointer(J, opendir(name)); 
+}
+
+void
+ cosi_closedir(js_State* J)
+{
+ void* handle = cosi_topointer(J, 1);
+ cosi_pushnumber(J, closedir(handle)); 
+}
+
+void
+ cosi_rewinddir(js_State* J)
+{
+ rewinddir(cosi_topointer(J, 1));
+ js_pushundefined(J); 
+}
+
+// unistd.h
+
+void
+ cosi_chdir(js_State* J)
+{
+ char* path = cosi_tostring(J, 1);
+ cosi_pushnumber(J, chdir(path)); 
+}
+
+void
+ cosi_getcwd(js_State* J)
+{
+ char* buffer = cosi_topointer(J, 1);
+ size_t max = js_tonumber(J, 2);
+ cosi_pushpointer(J, getcwd(buffer, max)); 
+}
+
+#endif
+
 /*
  That was automatically
  generated...do not edit!

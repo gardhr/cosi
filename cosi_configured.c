@@ -161,6 +161,21 @@ cosi_extend(J, "gmtime", cosi_gmtime);
 cosi_extend(J, "localtime", cosi_localtime);
 cosi_extend(J, "mktime", cosi_mktime);
 
+#ifndef cosi_no_posix
+
+// dirent.h
+
+cosi_extend(J, "getcwd", cosi_getcwd);
+cosi_extend(J, "chdir", cosi_chdir);
+
+// unistd.h
+
+cosi_extend(J, "opendir", cosi_opendir);
+cosi_extend(J, "closedir", cosi_closedir);
+cosi_extend(J, "rewinddir", cosi_rewinddir);
+
+#endif
+
 // global pointers
 
 cosi_declare(J, "stdout", stdout);

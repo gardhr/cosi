@@ -27,6 +27,11 @@ SOFTWARE.
 #ifndef cosi_includes_h_included
 #define cosi_includes_h_included
 
+#ifndef cosi_no_posix
+#include "dirent.h"
+#include "unistd.h"
+#endif
+
 #include "assert.h"
 #include "complex.h"
 #include "ctype.h"
@@ -51,10 +56,5 @@ SOFTWARE.
 #include "uchar.h"
 #include "wchar.h"
 #include "mujs/mujs.h"
-
-#ifdef cosi_debugging
-void
- cosi_debug(js_State* state);
-#endif
 
 #endif // cosi_includes_h_included
