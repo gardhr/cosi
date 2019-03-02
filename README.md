@@ -134,7 +134,7 @@ Same as above but using the contents of a file instead of a String.
 
 `function include(file)`
 
-Imports a file directly into te current global space.
+Imports a file directly into the current global space.
 
 `function sizeof(typename)`
 
