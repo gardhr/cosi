@@ -5,7 +5,7 @@ This software is released under [a dual MIT/ISC license](https://raw.githubuserc
 
 # Cosi (Javascript Native Runtime)
 
-Based on the [MuJS](https://mujs.com) Javascript \[ECMA-262 (2015)\] engine, Cosi provides a direct interface to most of the ISO C standard API. The library has a remarkably small footprint and will compile on just about any platform. 
+Based on the [MuJS](https://mujs.com) Javascript \[ECMA-262 (ES5)\] engine, Cosi provides a direct interface to most of the ISO C standard API. The library has a remarkably small footprint and will compile on just about any platform. 
 
 ## Status
 
