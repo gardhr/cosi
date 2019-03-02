@@ -45,5 +45,5 @@ int
  sprintf(script, format, file, file);
  if (!cosi_run(NULL, script))
   puts(cosi_message(NULL));
- return cosi_success(NULL) ? 0 : 1;
+ return cosi_success(NULL) ? EXIT_SUCCESS : EXIT_FAILURE;
 }
