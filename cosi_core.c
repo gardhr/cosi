@@ -148,36 +148,6 @@ cosi_bool
   return cosi_run(J, wrapped);
 }
 
-void*
- cosi_call(cosi J, const char* script)
-{
-/*
- FIXME
-*/
- cosi_set_error(J, "cosi_call (not implemented)");
- return cosi_false;
-/*
- J = cosi_shadow(J);
- static double buffer = 42;
- static void* data = NULL;
- int range = 10;
- if(cosi_run(J, script))
- {
-  js_currentfunction(J);
-  for(int index = 0; index < js_gettop(J); ++index)
-  {
-   if(!js_isundefined(J, index) && !js_isnull(J, index))
-   {
-    data = &buffer;
-    buffer = cosi_to_number(J, index);
-    printf("(%zu) %zu\n", (size_t)index, (size_t)buffer);
-   }
-  }
- }
- return data;
-*/
-}
-
 void
  cosi_main(cosi J, char** argv, char** envp)
 {

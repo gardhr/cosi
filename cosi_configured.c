@@ -29,6 +29,7 @@ SOFTWARE.
  generated...do not edit!
 */
 
+cosi_extend(J, "include", cosi_cosi_include);
 cosi_extend(J, "sizeof", cosi_sizeof);
 cosi_extend(J, "put", cosi_put);
 cosi_extend(J, "fput", cosi_fput);

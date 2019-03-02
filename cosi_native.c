@@ -30,127 +30,135 @@ SOFTWARE.
 */
 
 void
+ cosi_cosi_include(js_State* state)
+{
+ char* script = cosi_tostring(state, 1);
+ int result = cosi_include(state, script);
+ js_pushboolean(state, result);
+}
+
+void
  cosi_put(js_State* state)
 {
-  int result = printf("%s", cosi_tostring(state, 1));
-  js_pushnumber(state, result);
+ int result = printf("%s", cosi_tostring(state, 1));
+ js_pushnumber(state, result);
 }
 
 void
  cosi_fput(js_State* state)
 {
-  const char* text = cosi_tostring(state, 1);
-  FILE* stream = cosi_topointer(state, 2);
-  int result = fprintf(stream, "%s", text);
-  js_pushnumber(state, result);
+ const char* text = cosi_tostring(state, 1);
+ FILE* stream = cosi_topointer(state, 2);
+ int result = fprintf(stream, "%s", text);
+ js_pushnumber(state, result);
 }
 
 void
  cosi_sizeof(js_State* state)
 {
-  char* what = cosi_tostring(state, 1);
-  int result = 0;
-  if (strstr(what, "*") != NULL)
-    result = sizeof(void*);
-  else if (!strcmp(what, "char"))
-    result = sizeof(char);
-  else if (!strcmp(what, "short"))
-    result = sizeof(short);
-  else if (!strcmp(what, "int"))
-    result = sizeof(int);
-  else if (!strcmp(what, "long"))
-    result = sizeof(long);
-  else if (!strcmp(what, "long long"))
-    result = sizeof(long long);
-  else if (!strcmp(what, "float"))
-    result = sizeof(float);
-  else if (!strcmp(what, "double"))
-    result = sizeof(double);
-  else if (!strcmp(what, "size_t"))
-    result = sizeof(size_t);
-  else if (!strcmp(what, "fpos_t"))
-    result = sizeof(fpos_t);
-  else if (!strcmp(what, "wchar_t"))
-    result = sizeof(wchar_t);
-  else if (!strcmp(what, "div_t"))
-    result = sizeof(div_t);
-  else if (!strcmp(what, "ldiv_t"))
-    result = sizeof(ldiv_t);
-  js_pushnumber(state, result);
+ char* what = cosi_tostring(state, 1);
+ int result = 0;
+ if (strstr(what, "*") != NULL)
+  result = sizeof(void*);
+ else if (!strcmp(what, "char"))
+  result = sizeof(char);
+ else if (!strcmp(what, "short"))
+  result = sizeof(short);
+ else if (!strcmp(what, "int"))
+  result = sizeof(int);
+ else if (!strcmp(what, "long"))
+  result = sizeof(long);
+ else if (!strcmp(what, "long long"))
+  result = sizeof(long long);
+ else if (!strcmp(what, "float"))
+  result = sizeof(float);
+ else if (!strcmp(what, "double"))
+  result = sizeof(double);
+ else if (!strcmp(what, "size_t"))
+  result = sizeof(size_t);
+ else if (!strcmp(what, "fpos_t"))
+  result = sizeof(fpos_t);
+ else if (!strcmp(what, "wchar_t"))
+  result = sizeof(wchar_t);
+ else if (!strcmp(what, "div_t"))
+  result = sizeof(div_t);
+ else if (!strcmp(what, "ldiv_t"))
+  result = sizeof(ldiv_t);
+ js_pushnumber(state, result);
 }
 
 void
  cosi_bytes_to_text_inplace(js_State* state)
 {
-  char* data = cosi_topointer(state, 1);
-  if(data == NULL)
-  {
-   js_pushnull(state);
-   return;
-  } 
-  size_t size = js_tonumber(state, 2);
-  if (size == 0)
-    size = strlen(data);
-  char saved = data[size];
-  data[size] = 0;
-  js_pushstring(state, data);
-  data[size] = saved;
+ char* data = cosi_topointer(state, 1);
+ if(data == NULL)
+ {
+  js_pushnull(state);
+  return;
+ } 
+ size_t size = js_tonumber(state, 2);
+ if (size == 0)
+   size = strlen(data);
+ char saved = data[size];
+ data[size] = 0;
+ js_pushstring(state, data);
+ data[size] = saved;
 }
 
 void
  cosi_bytes_to_text(js_State* state)
 {
-  char* data = cosi_topointer(state, 1);
-  if(data == NULL)
-  {
-   js_pushnull(state);
-   return;
-  } 
-  size_t size = js_tonumber(state, 2);
-  if (size == 0)
-    size = strlen(data);
-  char* copy = malloc(size + 1);
-  strncpy(copy, data, size);
-  copy[size] = 0;
-  js_pushstring(state, copy);
-  free(copy);
+ char* data = cosi_topointer(state, 1);
+ if(data == NULL)
+ {
+  js_pushnull(state);
+  return;
+ } 
+ size_t size = js_tonumber(state, 2);
+ if (size == 0)
+  size = strlen(data);
+ char* copy = malloc(size + 1);
+ strncpy(copy, data, size);
+ copy[size] = 0;
+ js_pushstring(state, copy);
+ free(copy);
 }
 
 void
  cosi_text_to_bytes(js_State* state)
 {
-  char const* src = cosi_tostring(state, 1);
-  int size = strlen(src);
-  char* dst = malloc(size + 1);
-  char* result = strcpy(dst, src);
-  cosi_pushpointer(state, result);
+ char const* src = cosi_tostring(state, 1);
+ int size = strlen(src);
+ char* dst = malloc(size + 1);
+ char* result = strcpy(dst, src);
+ cosi_pushpointer(state, result);
 }
 
 void
  cosi_get_byte(js_State* state)
 {
-  unsigned char* data = cosi_topointer(state, 1);
-  size_t index = js_tonumber(state, 2);
-  js_pushnumber(state, data[index]);
+ unsigned char* data = cosi_topointer(state, 1);
+ size_t index = js_tonumber(state, 2);
+ js_pushnumber(state, data[index]);
 }
 
 void
  cosi_set_byte(js_State* state)
 {
-  unsigned char* data = cosi_topointer(state, 1);
-  size_t index = js_tonumber(state, 2);
-  int value = cosi_tobyte(state, 3);
-  data[index] = value;
-  js_pushundefined(state);
+ unsigned char* data = cosi_topointer(state, 1);
+ size_t index = js_tonumber(state, 2);
+ int value = cosi_tobyte(state, 3);
+ data[index] = value;
+ js_pushundefined(state);
 }
 
 void
  cosi_set_memory(js_State* state)
 {
-  void* data = cosi_topointer(state, 1);
-  size_t index = js_tonumber(state, 2);
-  double value = js_tonumber(state, 3);
-  double real = js_tonumber(state, 4);
+ void* data = cosi_topointer(state, 1);
+ size_t index = js_tonumber(state, 2);
+ double value = js_tonumber(state, 3);
+ double real = js_tonumber(state, 4);
 /*
  TODO: use a lookup table?
 */
