@@ -184,15 +184,15 @@ Same as above but prints a newline character after all arguments have been proce
 
 `function gets_bytes(stream)`
 
-Returns a pointer to a buffer containing a line typed by the user (or null if the input is empty). Memory management of the buffer is the responsibility of the caller (use the free() function). If unspecified, the default input stream is "stdin".
+Returns a pointer to a buffer containing a line typed by the user (or NULL if the input is empty). Memory management of the buffer is the responsibility of the caller (use the free() function). If unspecified, the default input stream is "stdin".
 
 `function gets_text(stream)`
 
-Returns a String containing a line typed by the user (or NULL if the input is empty). If unspecified, the default input stream is "stdin".
+Returns a String containing a line typed by the user (or null if the input is empty). If unspecified, the default input stream is "stdin".
 
 `function prompt(args)`
 
-Prints all of the args and then waits for user input from "stdin". Returns a String containing the line typed by the user (or NULL if the input is empty).
+Prints all of the args and then waits for user input from "stdin". Returns a String containing the line typed by the user (or null if the input is empty).
 
 `function to_text_array(array, skip)`
 
