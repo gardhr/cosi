@@ -8,7 +8,7 @@ function tick()
 
 function wait(pause)
 {
- var tock = tick() + pause;
+ var tock = tick() + pause
  while(tick() < tock)
   continue
 }
@@ -20,11 +20,8 @@ function print_mechanical(pace, text)
   pace = 1 / pace
  function put_mechanical(byte)
  {
-  var low = pace / 1728
   var modulated = 
-   low + 
-    (pace - low) * 
-    (rand() / RAND_MAX)
+   pace * (rand() / RAND_MAX)
   putchar(byte)
   fflush(stdout)
   wait(modulated) 
