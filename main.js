@@ -50,6 +50,6 @@ if(!args.length)
 loop(args, function(idx)
 {
  var pace = Number(args[idx])
- print("*** Pace:", pace, "seconds ***")
+ print("*** Pace: roughly", pace, "glyphs per second ***")
  print_mechanical(pace, text) 
 })
