@@ -20,7 +20,7 @@ function print_mechanical(pace, text)
   pace = 1 / pace
  function put_mechanical(byte)
  {
-  var low = pace / 12
+  var low = pace / 1728
   var modulated = 
    low + 
     (pace - low) * 
@@ -49,7 +49,7 @@ function print_mechanical(pace, text)
 var text = file_to_text(script_path())
 var args = argv_to_text_array()
 if(!args.length)
- args = [1/3/12]
+ args = [1/5]
 loop(args, function(idx)
 {
  var pace = Number(args[idx])
