@@ -48,7 +48,7 @@ function print_mechanical(pace, text)
 var text = file_to_text(script_path())
 var args = argv_to_text_array()
 if(!args.length)
- args = [1/6/12]
+ args = [1/3/12]
 loop(args, function(idx)
 {
  var pace = Number(args[idx])
