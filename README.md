@@ -46,10 +46,6 @@ Defines a new global Javascript "blob" (C pointer) variable.
 
 Runs some Javascript code.
 
-`cosi_bool cosi_eval(cosi J, const char* script)`
-
-Evokes the Javascript eval() function "in line".
-
 `cosi_bool cosi_include(cosi J, const char* file)`
 
 Expands the code from "file" directly into the current global space.
