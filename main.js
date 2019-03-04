@@ -16,6 +16,8 @@ function wait(pause)
 function print_mechanical(pace, text)
 {
  srand(time(NULL))
+ if(pace > 1)
+  pace = 1 / pace
  function put_mechanical(byte)
  {
   var low = pace / 12
@@ -50,6 +52,6 @@ if(!args.length)
 loop(args, function(idx)
 {
  var pace = Number(args[idx])
- print("*** Pace: roughly", pace, "glyphs per second ***")
+ print("*** Script ***")
  print_mechanical(pace, text) 
 })
