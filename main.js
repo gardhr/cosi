@@ -43,6 +43,7 @@ function print_mechanical(pace, text)
   put_mechanical(get_byte(bytes, jdx))
  })
  put_mechanical(0xa)
+ free(bytes)
 }
 
 var text = file_to_text(script_path())
