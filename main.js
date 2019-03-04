@@ -27,13 +27,8 @@ function print_mechanical(pace, text)
   wait(modulated) 
  } 
  var all = "";
- var args = arguments
- loop(
- { start: 1, end: args.length }, 
- function(idx)
- {
-  all += args[idx]
- })
+ for(var idx = 1; idx < arguments.length; ++idx)
+  all += arguments[idx]
  var bytes = text_to_bytes(all) 
  loop(all, function(jdx)
  {
@@ -46,7 +41,7 @@ function print_mechanical(pace, text)
 var text = file_to_text(script_path())
 var args = argv_to_text_array()
 if(!args.length)
- args = [3/10]
+ args = [2/10]
 loop(args, function(idx)
 {
  var pace = Number(args[idx])
