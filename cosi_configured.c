@@ -160,6 +160,7 @@ cosi_extend(J, "wcsftime", cosi_wcsftime);
 cosi_extend(J, "gmtime", cosi_gmtime);
 cosi_extend(J, "localtime", cosi_localtime);
 cosi_extend(J, "mktime", cosi_mktime);
+cosi_define(J, "CLOCKS_PER_SEC", CLOCKS_PER_SEC);
 
 #ifndef cosi_no_posix
 
