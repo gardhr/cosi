@@ -219,4 +219,5 @@ Helper function to convert a String to an Array of Numbers.
 Helper function to convert an Array of Numbers to String.
 
 `function utf_strlen(text)`
+
 Returns the utf-8 length of a String or raw C pointer.
