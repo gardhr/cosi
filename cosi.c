@@ -24,6 +24,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+#include "cosi.h"
+
 #ifndef cosi_standard_linkage
 #include "cosi_core.c"
 #endif 
