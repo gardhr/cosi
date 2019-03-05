@@ -148,11 +148,11 @@ Returns the size of some native C type. If typename contains an asterisk ("\*") 
 
 `function put(pointer)`
 
-Prints a C string (or even a Javascript String). No other types are allowed for this low-level function.
+Prints a raw C string or String object. No other types are allowed for this low-level function.
 
 `function fput(stream, pointer)`
 
-Prints a C string (or even a Javascript String) to a C file stream. No other types are allowed for this low-level function.
+Prints a raw C string or String object to a C file stream. No other types are allowed for this low-level function.
 
 `function get_byte(pointer, index)`
 
@@ -196,11 +196,11 @@ Returns a String containing a line typed by the user (or null if the input is em
 
 `function prompt(args)`
 
-Prints all of the args and then waits for user input from "stdin". Returns a String containing the line typed by the user (or null if the input is empty).
+Prints all of the arguments and then waits for user input from "stdin". Returns a String containing the line typed by the user (or null if the input was empty).
 
 `function to_text_array(array, skip)`
 
-Converts a C array of string pointers to an array of Strings. If "skip" is true then the first element of the C array is not copied (useful when used with argv() for example).
+Converts a raw C array of string pointers to an array of Strings. If "skip" is true then the first element of the C array is not copied (useful when used with argv() for example).
 
 `function argv_to_text_array(skip)`
 
