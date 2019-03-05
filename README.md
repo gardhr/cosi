@@ -13,7 +13,7 @@ The easiest way to use the Cosi library is to simply include "cosi_core.c" and t
 
 ## Examples
 
-For now Javscript and C examples can found in "main.js" and "cosi.c".
+For now Javascript and C examples can found in "main.js" and "cosi.c".
 
 ## Status
 
@@ -202,6 +202,10 @@ Prints all of the args and then waits for user input from "stdin". Returns a Str
 
 Converts a C array of string pointers to an array of Strings. If "skip" is true then the first element of the C array is not copied (useful when used with argv() for example).
 
+`function argv_to_text_array(skip)`
+
+Converts argv() to an array of Strings. If "skip" is undefined OR true then the first element of the C array is not copied (useful when used with argv() for example). Fails if argv has not set by the calling C environment (see cosi_main from the Cosi C API). 
+
 `function script_path()`
 
 Returns the path of the current script, if available. Fails if argv() has not set by the calling C environment (see cosi_main from the Cosi C API).  
@@ -213,3 +217,6 @@ Helper function to convert a String to an Array of Numbers.
 `function ascii_to_text(ascii)`
 
 Helper function to convert an Array of Numbers to String.
+
+`function utf_strlen(text)`
+Returns the utf-8 length of a String or raw C pointer.
