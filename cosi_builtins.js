@@ -119,6 +119,21 @@ function loop(control, action)
 }
 
 /*
+ https://stackoverflow.com/questions/5515869/string-length-in-bytes-in-javascript
+*/
+
+function utf_strlen(text)
+{
+ if(text > 0)
+  text = bytes_to_text(text)
+ var length = text.length
+ var extras = text.match(/%[89ABab]/g);
+ if(extras)
+  length += extras.length
+ return length
+}
+
+/*
  Common conversions
 */
 function file_to_bytes(source)
@@ -164,7 +179,7 @@ function bytes_to_file(bytes, file, len)
  if(!(file > 0))
   out = fopen(file, 'wb+')
  if(!len)
-  len = strlen(bytes)
+  len = utf_strlen(bytes)
  var pass = false
  if(out)
  {
@@ -190,7 +205,7 @@ function file_to_text(file)
 function text_to_file(text, file)
 {
  var data = text_to_bytes(text)
- var pass = bytes_to_file(data, file, text.length)
+ var pass = bytes_to_file(data, file, utf_strlen(data))
  free(data)
  return pass
 }
@@ -295,7 +310,7 @@ function gets_bytes(stream)
   if(!fgets(line, max, stream))
    return true
   var 
-   length = strlen(line),
+   length = utf_strlen(line),
    last = length - 1 
   if(get_byte(line, last) == newline) 
    set_byte(line, last--, 0)
@@ -339,8 +354,9 @@ function text_to_ascii(text)
 
 function ascii_to_text(ascii)
 {
- var bytes = malloc(ascii.length + 1)
- set_byte(bytes, ascii.length, 0)
+ var length = ascii.length
+ var bytes = malloc(length + 1)
+ set_byte(bytes, length, 0)
  loop(ascii, function(counter){
   set_byte(bytes, counter, ascii[counter])
  })
