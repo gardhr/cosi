@@ -48,7 +48,7 @@ Defines a new global Javascript (Number) variable.
 
 `cosi_bool cosi_declare(cosi J, const char* symbol, void* value)`
 
-Defines a new global Javascript "blob" (C pointer) variable.
+Declares a new global Javascript "blob" (C pointer) variable.
 
 `cosi_bool cosi_run(cosi J, const char* script)`
 
