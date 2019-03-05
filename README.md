@@ -17,7 +17,7 @@ For now Javascript and C examples can found in "main.js" and "cosi.c".
 
 ## Status
 
-Cosi is still very much in the early stages of development. At this point the code does seem pretty stable though...so enjoy. :)  
+Cosi is still very much in the early stages of development. At this point the code does seem pretty stable however. So enjoy!  
 
 ## Caveats
 
