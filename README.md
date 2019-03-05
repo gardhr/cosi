@@ -192,7 +192,7 @@ Returns a pointer to a buffer containing a line typed by the user (or NULL if th
 
 `function gets_text(stream)`
 
-Returns a String containing a line typed by the user (or null if the input is empty). If unspecified, the default input stream is "stdin".
+Returns a String containing a line typed by the user (or null if the input was empty). If unspecified, the default input stream is "stdin".
 
 `function prompt(args)`
 
