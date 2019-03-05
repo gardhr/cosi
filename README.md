@@ -204,7 +204,7 @@ Converts a raw C array of string pointers to an array of Strings. If "skip" is t
 
 `function argv_to_text_array(skip)`
 
-Converts argv() to an array of Strings. If "skip" is undefined OR true then the first element of the C array is not copied (useful when used with argv() for example). Fails if argv has not set by the calling C environment (see cosi_main from the Cosi C API). 
+Converts argv() to an array of Strings. If "skip" is undefined OR true then the first element of the C array is not copied (skipping the script name in argv). Fails if argv has not set by the calling C environment (see cosi_main from the Cosi C API). 
 
 `function script_path()`
 
