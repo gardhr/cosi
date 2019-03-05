@@ -7,6 +7,14 @@ This software is released under [a dual MIT/ISC license](https://raw.githubuserc
 
 Based on the [MuJS](https://mujs.com) Javascript (ES5) engine, Cosi provides a direct interface to most of the ISO C standard API. 
 
+## Installation
+
+The easiest way to use the Cosi library is to simply include "cosi_core.c" and then compile and run (same goes for the default interpreter/driver "cosi.c"). Otherwise just define "cosi_standard_linkage" and compile the ".c" files separately as normal.
+
+## Examples
+
+For now Javscript and C examples can found in "main.js" and "cosi.c".
+
 ## Status
 
 Cosi is still very much in the early stages of development. That said even in its current state the code base is quite stable and usable.  
