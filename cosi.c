@@ -25,7 +25,7 @@ SOFTWARE.
 */
 
 #include "cosi.h"
-
+ 
 #ifndef cosi_standard_linkage
 #include "cosi_core.c"
 #endif 
