@@ -1,4 +1,4 @@
-/*
+ /*
 MIT License
 
 Cosi (Javascript Native Runtime)
