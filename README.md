@@ -14,8 +14,11 @@ The easiest way to use the Cosi library is to simply include "cosi_core.c" and t
 To compile to cosi file interpreter:
 
 `git clone https://github.com/gardhr/cosi`
+
 `cd cosi`
+
 `clang -o cosi -lm cosi.c`
+
 `./cosi`
 
 ## Examples
