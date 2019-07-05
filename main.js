@@ -42,7 +42,7 @@ function print_mechanical(pace, text)
 
 var args = argv_to_text_array()
 if(!args.length)
- args = [1/4]
+ args = [1/12]
 var text = file_to_text(script_path())
 loop(args, function(idx)
 {
