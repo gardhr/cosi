@@ -19,7 +19,7 @@ To compile to cosi file interpreter:
 
 `clang -o cosi -lm cosi.c`
 
-`./cosi`
+`./cosi main.js` 
 
 ## Examples
 
