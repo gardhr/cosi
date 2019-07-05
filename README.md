@@ -11,7 +11,7 @@ Based on the [MuJS](https://mujs.com) Javascript (ES5) engine, Cosi provides a d
 
 The easiest way to use the Cosi library is to simply include "cosi_core.c" and then compile and run (same goes for the default interpreter/driver "cosi.c"). Otherwise just define "cosi_standard_linkage" and compile the ".c" files separately as normal.
 
-To compile to cosi file interpreter:
+To compile the cosi file interpreter:
 
 `git clone https://github.com/gardhr/cosi`
 
