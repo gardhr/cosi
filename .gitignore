@@ -1,6 +1,5 @@
 ignore.*
-cosi
-/build
+cvm
 # Prerequisites
 *.d
 
