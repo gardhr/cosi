@@ -167,6 +167,7 @@ cosi_define(J, "CLOCKS_PER_SEC", CLOCKS_PER_SEC);
 // dirent.h
 
 cosi_extend(J, "getcwd", cosi_getcwd);
+cosi_extend(J, "current_directory", cosi_current_directory);
 cosi_extend(J, "chdir", cosi_chdir);
 
 // unistd.h
@@ -174,6 +175,19 @@ cosi_extend(J, "chdir", cosi_chdir);
 cosi_extend(J, "opendir", cosi_opendir);
 cosi_extend(J, "closedir", cosi_closedir);
 cosi_extend(J, "rewinddir", cosi_rewinddir);
+cosi_extend(J, "readdir", cosi_readdir);
+cosi_extend(J, "dirent_name", cosi_dirent_name);
+cosi_extend(J, "dirent_type", cosi_dirent_type);
+
+cosi_define(J, "DT_UNKNOWN", DT_UNKNOWN);
+cosi_define(J, "DT_CHR", DT_CHR);
+cosi_define(J, "DT_BLK", DT_BLK);
+cosi_define(J, "DT_LNK", DT_LNK);
+cosi_define(J, "DT_WHT", DT_WHT);
+cosi_define(J, "DT_FIFO", DT_FIFO);
+cosi_define(J, "DT_DIR", DT_DIR);
+cosi_define(J, "DT_REG", DT_REG);
+cosi_define(J, "DT_SOCK", DT_SOCK);
 
 #endif
 

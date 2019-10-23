@@ -865,6 +865,27 @@ void
 }
 
 void
+ cosi_readdir(js_State* J)
+{
+ void* handle = cosi_topointer(J, 1);
+ cosi_pushpointer(J, readdir(handle)); 
+}
+
+void
+ cosi_dirent_name(js_State* J)
+{
+ struct dirent* info = cosi_topointer(J, 1);
+ js_pushstring(J, info->d_name); 
+}
+
+void
+ cosi_dirent_type(js_State* J)
+{
+ struct dirent* info = cosi_topointer(J, 1);
+ js_pushnumber(J, info->d_type); 
+}
+
+void
  cosi_closedir(js_State* J)
 {
  void* handle = cosi_topointer(J, 1);
@@ -893,6 +914,13 @@ void
  char* buffer = cosi_topointer(J, 1);
  size_t max = js_tonumber(J, 2);
  cosi_pushpointer(J, getcwd(buffer, max)); 
+}
+
+void
+ cosi_current_directory(js_State* J)
+{
+ char buffer[PATH_MAX + 1];
+ js_pushstring(J, getcwd(buffer, sizeof(buffer))); 
 }
 
 #endif

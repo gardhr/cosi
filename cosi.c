@@ -27,25 +27,228 @@ SOFTWARE.
 #include "cosi.h"
 
 #ifndef cosi_standard_linkage
-#include "cosi_core.c"
-#endif 
+#include "cosi_internal.c"
+#include "mujs/one.c"
+#endif
 
-int 
- main(int argc, char** argv, char** envp)
+/*
+ This is automatically
+ generated...do not edit!
+*/
+#include "cosi_native.c"
+#include "cosi_std.c"
+/*
+ That was automatically
+ generated...do not edit!
+*/
+
+static cosi
+ cosi_shadow(cosi J)
 {
- size_t 
-  offset = 1;
- if (argc == 1)
-  argv[offset = 0] = "main.js";
- cosi_main(NULL, &argv[offset], envp);
- char 
-  * file = argv[offset],
-  format[] = 
-   "if(!file_to_task('%s'))\n"
-   " throw Error('cannot load file %s')",
-  script[sizeof(format) + strlen(file) * 2 + 1];
- sprintf(script, format, file, file);
- if (!cosi_run(NULL, script))
-  puts(cosi_message(NULL));
- return cosi_success(NULL) ? EXIT_SUCCESS : EXIT_FAILURE;
+  return J ? J : cosi_get_global();
+}
+
+cosi_data
+ cosi_unpack(cosi J)
+{
+  J = cosi_shadow(J);
+  js_getglobal(J, cosi_runtime_tag);
+  cosi_data result = cosi_topointer(J, -1);
+  js_pop(J, 1);
+  return result;
+}
+
+cosi_bool
+ cosi_success(cosi J)
+{
+  return cosi_unpack(J)->success;
+}
+
+static void
+ cosi_reset_error(cosi J, cosi_bool fail, const char* message)
+{
+  cosi_data data = cosi_unpack(J);
+  data->success = !fail;
+  data->debug = message ? message : "";
+}
+
+static void
+ cosi_reset(cosi J)
+{
+  cosi_reset_error(J, cosi_false, NULL);
+}
+
+static void
+ cosi_set_error(cosi J, const char* message)
+{
+  cosi_reset_error(J, cosi_true, message);
+}
+
+cosi
+ cosi_destroy(cosi J)
+{
+  J = cosi_shadow(J);
+  if (J == cosi_get_global())
+    cosi_set_global(NULL);
+  free(cosi_unpack(J));
+  js_freestate(J);
+  return NULL;
+}
+
+cosi_bool
+ cosi_extend(cosi J, const char* symbol, void (*code)(cosi))
+{
+  J = cosi_shadow(J);
+  js_newcfunction(J, code, symbol, 0);
+  js_setglobal(J, symbol);
+  return cosi_success(J);
+}
+
+cosi_bool
+ cosi_define(cosi J, const char* symbol, double value)
+{
+  J = cosi_shadow(J);
+  js_newnumber(J, value);
+  js_setglobal(J, symbol);
+  return cosi_success(J);
+}
+
+cosi_bool
+ cosi_declare(cosi J, const char* symbol, void* value)
+{
+  return cosi_define(J, symbol, (size_t)value);
+}
+
+cosi_bool
+ cosi_run(cosi J, const char* script)
+{
+  J = cosi_shadow(J);
+  cosi_reset(J);
+  js_dostring(J, script);
+  return cosi_success(J);
+}
+
+cosi_bool
+ cosi_eval(cosi J, const char* script)
+{
+ char
+  format[] = "eval('%s')",
+  wrapped[sizeof(format) + strlen(script) + 1];
+  sprintf(wrapped, format, script);
+  return cosi_run(J, wrapped);
+}
+
+cosi_bool
+ cosi_include(cosi J, const char* file)
+{
+ char
+  format[] = "eval(file_to_text('%s'))",
+  wrapped[sizeof(format) + strlen(file) + 1];
+  sprintf(wrapped, format, file);
+  return cosi_run(J, wrapped);
+}
+
+void
+ cosi_main(cosi J, char** argv, char** envp)
+{
+  cosi_data data = cosi_unpack(J);
+  data->argv = argv;
+  data->envp = envp;
+}
+
+static void
+ cosi_panic(cosi J)
+{
+  cosi_set_error(J, "WARNING: cosi_panic invoked!");
+}
+
+static void
+ cosi_report(cosi J, char const* message)
+{
+  cosi_set_error(J, message);
+}
+
+const char*
+ cosi_message(cosi J)
+{
+  return cosi_unpack(J)->debug;
+}
+
+void
+ cosi_argv(js_State* state)
+{
+  char** result = cosi_unpack(state)->argv;
+  cosi_pushpointer(state, result);
+}
+
+void
+ cosi_envp(js_State* state)
+{
+  char** result = cosi_unpack(state)->envp;
+  cosi_pushpointer(state, result);
+}
+
+cosi
+ cosi_create_from(js_Alloc alloc, void* context, int flags)
+{
+  cosi J = js_newstate(alloc, context, flags);
+  cosi_data data = js_malloc(J, sizeof(*data));
+  js_newnumber(J, (size_t)data);
+  js_defglobal(J, cosi_runtime_tag, JS_DONTENUM);
+  cosi_reset(J);
+  cosi_main(J, NULL, NULL);
+  js_atpanic(J, cosi_panic);
+  js_setreport(J, cosi_report);
+
+/*
+ This is automatically
+ generated...do not edit!
+*/
+
+#include "cosi_configured.c"
+
+const char* 
+ builtins = 
+""
+#include "cosi_builtins.txt"
+"";
+
+if(!cosi_run(J, builtins))
+ fprintf(stderr, "ERROR: failed to load file 'cosi_builtins.txt'\n");
+
+/*
+ That was automatically
+ generated...do not edit!
+*/
+
+  return J;
+}
+
+cosi
+ cosi_create(void)
+{
+  return cosi_create_from(NULL, NULL, JS_STRICT);
+}
+
+static cosi
+ cosi_access_global(cosi J, cosi_bool set)
+{
+  static cosi global = NULL;
+  if (set)
+    global = J;
+  else if (global == NULL)
+    global = cosi_create();
+  return global;
+}
+
+void
+ cosi_set_global(cosi J)
+{
+  cosi_access_global(J, cosi_true);
+}
+
+cosi
+ cosi_get_global(void)
+{
+  return cosi_access_global(NULL, cosi_false);
 }

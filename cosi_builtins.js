@@ -73,7 +73,7 @@ function contain(routine, handler)
  var 
   exception = caught(routine, handler)
  if(exception)
-  print("Error:", exception)
+  prints("Error:", exception)
  return exception
 }
 
@@ -215,6 +215,8 @@ function text_to_file(text, file)
 */
 function text_to_function(script, imports)
 {
+ if(!script)
+  return null
  var result = null
  escape(function(){
   var bundled = 'return function(){' + script + '}'
@@ -268,7 +270,7 @@ function file_to_object(file)
 /*
  Input and output
 */
-function print_partial()
+function print()
 {
  var args = arguments
  loop(args, function(index){
@@ -283,13 +285,13 @@ function print_partial()
  })
 }
 
-function print()
+function prints()
 {
- print_partial.apply(null, arguments)
+ print.apply(null, arguments)
  putchar(0xa)
 }
 
-function gets_bytes(stream)
+function read_line(stream)
 {
  var sum = 0
  var size = 64
@@ -308,7 +310,7 @@ function gets_bytes(stream)
   var 
    line = data + sum
   if(!fgets(line, max, stream))
-   return true
+   return sum != 0
   var 
    length = utf_strlen(line),
    last = length - 1 
@@ -318,58 +320,27 @@ function gets_bytes(stream)
   if(length != max)
    return true
  })
- if(!pass || sum == 0)
+ if(!pass)
  {
   free(data)
-  return NULL 
+  return null 
  }
- return data  
+ return bytes_to_text(data)  
 }
-
-function gets_text(stream)
-{
- var bytes = gets_bytes(stream)
- var text = bytes ? bytes_to_text(bytes) : null
- free(bytes)
- return text
-} 
 
 function prompt()
 {
- print_partial.apply(null, arguments)
+ print.apply(null, arguments)
  put(' ')
- return gets_text()
+ return read_line()
 }
 
-function text_to_ascii(text)
+function script_arguments(skip)
 {
- var chars = [] 
- var data = text_to_bytes(text)
- loop(strlen(data), function(index){ 
-  chars.push(get_byte(data, index)) 
- })
- free(data)
- return chars
-}
-
-function ascii_to_text(ascii)
-{
- var length = ascii.length
- var bytes = malloc(length + 1)
- set_byte(bytes, length, 0)
- loop(ascii, function(counter){
-  set_byte(bytes, counter, ascii[counter])
- })
- var text = bytes_to_text(bytes)
- free(bytes)
- return text
-}
-
-function to_text_array(args, skip)
-{
+ var args = argv()
  var tab = []
  var align = sizeof('void*')
- if(skip)
+ if(skip !== false)
   args += align
  for(;;)
  {
@@ -382,14 +353,40 @@ function to_text_array(args, skip)
  return tab
 }
 
-function argv_to_text_array(skip)
-{
- if(skip === undefined)
-  skip = true
- return to_text_array(argv(), skip)
-}
-
 function script_path()
 {
  return bytes_to_text(get_memory(argv()))
+}
+
+function process_directory(directory, callback)
+{
+ var enter = callback.enter
+ var process = callback.process || callback
+ var leave = callback.leave
+ var saved = current_directory()
+ var handle = opendir(directory)
+ if(handle != NULL)
+ {
+  if(enter)
+   enter(directory)
+  chdir(directory)
+  while(true)
+  {
+   var info = readdir(handle)
+   if(info == NULL)
+    break
+   var path = dirent_name(info)
+   if(path == "." || path == "..")
+    continue
+   var type = dirent_type(info)
+   if(type & DT_DIR)
+    process_directory(path, callback)
+   else
+    process(path, type) 
+  } 
+  if(leave)
+   leave(directory)
+  closedir(handle)
+ }
+ chdir(saved)
 }

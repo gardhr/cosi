@@ -1,6 +1,6 @@
 
-print("Sample Cosi Application")
-print("(NOTE: default filename is 'main.js')")
+prints("Sample Cosi Application")
+prints("(NOTE: default filename is 'main.js')")
 
 function tick()
 {
@@ -40,13 +40,13 @@ function print_mechanical(pace, text)
  free(bytes)
 }
 
-var args = argv_to_text_array()
+var args = script_arguments()
 if(!args.length)
  args = [1/12]
 var text = file_to_text(script_path())
 loop(args, function(idx)
 {
  var pace = Number(args[idx])
- print("*** Script (printed with", pace, "second delays) ***")
+ prints("*** Script (printed with", pace, "second delays) ***")
  print_mechanical(pace, text) 
 })
