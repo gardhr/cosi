@@ -263,9 +263,24 @@ Returns the path of the current script, if available. Fails if argv() has not se
 Returns the utf-8 length of a String or raw C pointer.
 
 
+`function current_directory()`
+
+Returns the current working directory.
+
+
 `function process_directory(directory, callback)`
 
 Traverses a directory recursively. The second parameter can either be a single function to be applied to each file OR an object containing one or more of the following functions: process, enter, leave. The first is applied to all files and the last two are applied to the directory itself. 
+
+
+`function dirent_name(dirent)`
+
+Returns the name of a file obtained from the 'readdir' function.
+
+
+`function dirent_type(dirent)`
+
+Returns a bitmask of the file obtained from the 'readdir' function.
 
 
 ## Implemented C Functions and Constants
@@ -273,128 +288,229 @@ Traverses a directory recursively. The second parameter can either be a single f
 // global pointers
 
 NULL
+
 stdout
+
 stderr
+
 stdin
 
 // global constants
 
 SEEK_SET
+
 SEEK_CUR
+
 SEEK_END
+
 _IOFBF
+
 _IOLBF
+
 _IONBF
+
 BUFSIZ
+
 EOF
+
 FOPEN_MAX
+
 FILENAME_MAX
+
 EXIT_FAILURE
+
 EXIT_SUCCESS
+
 RAND_MAX
+
 MB_CUR_MAX
 
 //stdio.h
 
 clearerr
+
 fopen
+
 freopen
+
 fseek
+
 ftell
+
 fgetpos
+
 fsetpos
+
 rewind
+
 fread
+
 fwrite
+
 fgetc
+
 getc
+
 ungetc
+
 fputc
+
 putc
+
 putchar
+
 getchar
+
 puts
+
 fgets
+
 feof
+
 ferror
+
 perror
+
 fflush
+
 fclose
+
 remove
+
 rename
+
 setbuf
+
 setvbuf
+
 tmpfile
 
 // stdlib.h
 
 atof
+
 atoi
+
 atol
+
 strtod
+
 strtol
+
 strtoul
+
 abort
+
 exit
+
 getenv
+
 system
+
 abs
+
 labs
+
 rand
+
 srand
+
 malloc
+
 realloc
+
 calloc
+
 free
+
 strlen
+
 strncpy
+
 puts
+
 fputs
 
 // ctype.h 
 
 isalnum
+
 isalpha
+
 isblank
+
 iscntrl
+
 isdigit
+
 isgraph
+
 islower
+
 isprint
+
 ispunct
+
 isspace
+
 isupper
+
 isxdigit
+
 tolower
+
 toupper
 
 // math.h
 
 NAN
+
 HUGE_VAL
 
 sin
+
 cos
+
 tan
+
 asin
+
 acos
+
 atan
+
 atan2
+
 sinh
+
 cosh
+
 tanh
+
 exp
+
 frexp
+
 ldexp
+
 log
+
 log10
+
 sqrt
+
 pow
+
 ceil
+
 floor
+
 abs
+
 fabs
+
 fmod
+
 modf
 
 // errno.h
@@ -404,13 +520,21 @@ errno // Note: implemented as a function
 // time.h
 
 difftime
+
 time
+
 clock
+
 asctime
+
 strftime
+
 wcsftime
+
 gmtime
+
 localtime
+
 cosi_mktime
 
 CLOCKS_PER_SEC
@@ -418,75 +542,133 @@ CLOCKS_PER_SEC
 // float.h
 
 FLT_RADIX
+
 FLT_MANT_DIG
+
 DBL_MANT_DIG
+
 LDBL_MANT_DIG
+
 FLT_DIG
+
 DBL_DIG
+
 LDBL_DIG
+
 FLT_EPSILON
+
 DBL_EPSILON
+
 LDBL_EPSILON
+
 FLT_MIN
+
 DBL_MIN
+
 LDBL_MIN
+
 FLT_MAX
+
 DBL_MAX
+
 LDBL_MAX
+
 FLT_MIN_EXP
+
 DBL_MIN_EXP
+
 LDBL_MIN_EXP
+
 FLT_MAX_EXP
+
 DBL_MAX_EXP
+
 LDBL_MAX_EXP
+
 FLT_MIN_10_EXP
+
 DBL_MIN_10_EXP
+
 LDBL_MIN_10_EXP
+
 FLT_MAX_10_EXP
+
 DBL_MAX_10_EXP
+
 LDBL_MAX_10_EXP
+
 FLT_ROUNDS
 
 // limits.h
 
 CHAR_BIT
+
 SCHAR_MIN
+
 SCHAR_MAX
+
 UCHAR_MAX
+
 CHAR_MIN
+
 CHAR_MAX
+
 MB_LEN_MAX
+
 SHRT_MIN
+
 SHRT_MAX
+
 USHRT_MAX
+
 INT_MIN
+
 INT_MAX
+
 UINT_MAX
+
 LONG_MIN
+
 LONG_MAX
+
 ULONG_MAX
+
 LLONG_MIN
+
 LLONG_MAX
+
 ULLONG_MAX
 
 // dirent.h
 
 getcwd
+
 chdir
 
 // unistd.h
 
 opendir
+
 closedir
+
 rewinddir
+
 readdir
 
 DT_UNKNOWN
+
 DT_CHR
+
 DT_BLK
+
 DT_LNK
+
 DT_WHT
+
 DT_FIFO
+
 DT_DIR
+
 DT_REG
+
 DT_SOCK
