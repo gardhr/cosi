@@ -21,11 +21,7 @@ Cosi comes with a very simple VM for running scripts.
 
 `gcc -o cvm -lm cvm.c`
 
-`./cvm main.js` 
-
-## Examples
-
-For now Javascript and C examples can found in "main.js" and "cvm.c".
+`./cvm examples/mechanical.js` 
 
 ## Status
 
