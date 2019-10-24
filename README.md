@@ -531,7 +531,7 @@ gmtime
 
 localtime
 
-cosi_mktime
+mktime
 
 CLOCKS_PER_SEC
 
