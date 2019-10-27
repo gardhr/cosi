@@ -45,7 +45,7 @@ function show()
 }
 
 /*
-   Typewriting...  
+  Typewrite yourself!  
 */
 
 show("~ The Self Typing Typewriter ~")
