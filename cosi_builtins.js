@@ -73,7 +73,7 @@ function contain(routine, handler)
  var 
   exception = caught(routine, handler)
  if(exception)
-  log_display("Error:", exception)
+  display("Error:", exception)
  return exception
 }
 

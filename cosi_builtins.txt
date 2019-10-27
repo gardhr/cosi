@@ -85,7 +85,7 @@
 "  var  \n " 
 "   exception = caught(routine, handler) \n " 
 "  if(exception) \n " 
-"   log_display(\"Error:\", exception) \n " 
+"   display(\"Error:\", exception) \n " 
 "  return exception \n " 
 " } \n " 
 "  \n " 
