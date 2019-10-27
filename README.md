@@ -25,7 +25,7 @@ Cosi comes with a very simple VM for running scripts.
 
 ## Status
 
-The current version of Cosi is 1.0 and is stable for release. No breaking changes will be allowed in the future. 
+The current version of Cosi (1.0) is now stable for release. No breaking changes will be allowed in the future. 
 
 ## Caveats
 
