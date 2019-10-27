@@ -5,8 +5,8 @@ function tick()
 
 function wait(delay)
 {
- var rest = tick() + delay
- while(tick() < rest)
+ var later = tick() + delay
+ while(tick() < later)
   continue
 }
 
@@ -45,7 +45,7 @@ function show()
 }
 
 /*
-   Type something...
+   Typewriting...  
 */
 
 show("~ The Self Typing Typewriter ~")
