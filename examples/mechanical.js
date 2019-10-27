@@ -49,7 +49,6 @@ function show()
 */
 
 srand(time(NULL))
-show("Sample Cosi Application")
 show("(NOTE: default filename is 'main.js')")
 var args = script_arguments()
 if(!args.length)
