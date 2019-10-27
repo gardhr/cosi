@@ -1,3 +1,5 @@
+/* Sun Oct 27 16:17:54 2019 */
+/* cosi_builtins.js */
 " /* \n " 
 " MIT License \n " 
 "  \n " 

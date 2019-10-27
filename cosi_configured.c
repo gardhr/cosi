@@ -40,6 +40,7 @@ cosi_extend(J, "bytes_to_text", cosi_bytes_to_text);
 cosi_extend(J, "text_to_bytes", cosi_text_to_bytes);
 cosi_extend(J, "envp", cosi_envp);
 cosi_extend(J, "argv", cosi_argv);
+cosi_extend(J, "timestamp", cosi_timestamp);
 
 //stdio.h
 
@@ -152,6 +153,7 @@ cosi_extend(J, "errno", cosi_errno);
 
 cosi_extend(J, "difftime", cosi_difftime);
 cosi_extend(J, "time", cosi_time);
+cosi_extend(J, "ctime", cosi_ctime);
 cosi_extend(J, "clock", cosi_clock);
 cosi_extend(J, "asctime", cosi_asctime);
 cosi_extend(J, "strftime", cosi_strftime);

@@ -24,11 +24,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-/*
- This is automatically
- generated...do not edit!
-*/
-
 void
  cosi_cosi_include(js_State* state)
 {
@@ -228,7 +223,15 @@ cosi_get_memory(js_State* state)
   js_pushnumber(state, value);
 }
 
-/*
- That was automatically
- generated...do not edit!
-*/
+void
+ cosi_timestamp(js_State* state)
+{
+ time_t info = time(NULL);
+ char* text = ctime(&info);
+ unsigned 
+  len = strlen(text), 
+  end = len ? len - 1 : 0;
+ if(text[end] == '\n')
+  text[end] = 0; 
+ js_pushstring(state, text);
+}

@@ -266,6 +266,12 @@ void
 }
 
 void
+ cosi_ctime(js_State* J)
+{
+ js_pushstring(J, ctime(cosi_topointer(J, 1)));
+}
+
+void
  cosi_clock(js_State* J)
 {
  js_pushnumber(J, clock());
