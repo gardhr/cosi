@@ -214,12 +214,6 @@ Returns the size of some native C type. If typename contains an asterisk ("\*") 
 
 
 
-`function clog(stream, pointer)`
-
-Prints a raw C string or String object to a C file stream. No other types are allowed for this low-level function.
-
-
-
 `function get_byte(pointer, index)`
 
 Returns the byte at "index" of a raw C buffer.
@@ -274,13 +268,31 @@ Returns an array of the environment strings. Returns null if argv has not set by
 
 
 
-`function print(args)`
+`function clog(stream, pointer)`
+
+Prints a raw C string or String object to a C file stream. No other types are allowed for this low-level function.
+
+
+
+`function log_print(stream, args...)`
+
+Prints the arguments to C file stream, inserting a space between each one.
+
+
+
+`function log_display(stream, args...)`
+
+Same as above but prints a newline character after all arguments have been processed.
+
+
+
+`function print(args...)`
 
 Prints the arguments, inserting a space between each one.
 
 
 
-`function display(args)`
+`function display(args...)`
 
 Same as above but prints a newline character after all arguments have been processed.
 
