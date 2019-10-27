@@ -48,7 +48,7 @@ function show()
    Type something...
 */
 
-show("~ The Self Typewriter ~")
+show("~ The Self Typing Typewriter ~")
 srand(time(NULL))
 var args = script_arguments()
 if(!args.length)
