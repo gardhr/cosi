@@ -41,8 +41,10 @@ int
  char 
   * file = argv[offset],
   format[] = 
-   "if(!file_to_task('%s'))\n"
-   " throw Error('cannot load file %s')",
+   "var file = '%s'\n"
+   "if(!file_to_task(file))\n"
+   " if(!file_to_task(file + '.js'))\n"
+   "  throw Error('cannot load file ' + file)",
   script[sizeof(format) + strlen(file) * 2 + 1];
  sprintf(script, format, file, file);
  if (!cosi_run(NULL, script))
