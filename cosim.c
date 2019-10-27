@@ -24,11 +24,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#include "cosi.h"
-
-#ifndef cosi_standard_linkage
 #include "cosi.c"
-#endif 
 
 int 
  main(int argc, char** argv, char** envp)

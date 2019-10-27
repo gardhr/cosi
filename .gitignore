@@ -1,5 +1,6 @@
 ignore.*
-cvm
+cosim
+
 # Prerequisites
 *.d
 
