@@ -19,9 +19,9 @@ Cosi comes with a very simple VM for running scripts.
 
 `cd cosi`
 
-`gcc -o cvm -lm cvm.c`
+`gcc -o cosim -lm cosim.c`
 
-`./cvm examples/mechanical.js` 
+`./cosim examples/mechanical.js` 
 
 ## Status
 
