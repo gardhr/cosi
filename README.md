@@ -22,7 +22,7 @@ Cosi comes with a very simple VM for running scripts: `cosim`.
 
 `gcc -o cosim -lm cosim.c`
 
-`./cosim examples/mechanical.js` 
+`./cosim examples/typewrite.js` 
 
 ## Status
 
