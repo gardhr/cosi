@@ -10,7 +10,7 @@ Cosi is a cross-platform Javascript native runtime C library and interpreter. In
 
 ## Installation
 
-Cosi requires no installation. For simple projects simply #include "cosi.c" and compile. Otherwise just #define cosi_standard_linkage and #include "cosi.h".
+Cosi requires no installation. For single-module projects just #include "cosi.c" and compile. Otherwise simply #define cosi_standard_linkage and #include "cosi.h".
 
 ## Command Line Interpreter
 
