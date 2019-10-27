@@ -14,7 +14,7 @@ Cosi requires no installation. For single-module projects just #include "cosi.c"
 
 ## Command Line Interpreter
 
-Cosi comes with a very simple VM for running scripts.   
+Cosi comes with a very simple VM for running scripts: `cosim`.   
 
 `git clone https://github.com/gardhr/cosi`
 
