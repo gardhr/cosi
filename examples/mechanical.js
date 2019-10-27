@@ -35,7 +35,7 @@ function typewrite(pace, text)
 
 function pick()
 {
- return 1 / (rand() % 12 + 3)
+ return 1 / (rand() % 24)
 }
 
 function show()
