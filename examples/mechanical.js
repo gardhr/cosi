@@ -48,8 +48,8 @@ function show()
    Type something...
 */
 
+show("~ The Self Typewriter ~")
 srand(time(NULL))
-show("(NOTE: default filename is 'main.js')")
 var args = script_arguments()
 if(!args.length)
  args = [pick()]
