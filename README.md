@@ -5,11 +5,11 @@ This software is released under [a dual MIT/ISC license](https://raw.githubuserc
 
 # Cosi (Javascript Native Runtime)
 
-Cosi is an extremely cross-platform Javascript native runtime in the form of a C library and interpreter with no dependancies. Powered by the [MuJS](https://mujs.com) Javascript (ES5) engine, Cosi provides an interface to most of the ISO C standard API. All of the familiar favorites like NULL, stdin/stdout, INT_MAX, etc. Plus...C pointers right from Javascript!
+Cosi is a cross-platform Javascript native runtime in the form of a C library and interpreter. Interface with most of the ISO C standard API, including all of the familiar favorites like NULL, stdin/stdout, INT_MAX, etc. Plus...C pointers right from Javascript! Powered by the [MuJS](https://mujs.com) Javascript (ES5) engine.
 
 ## Installation
 
-Cosi requires no installation. For simple projects just #include "cosi.c" and compile. (Note, if compiling multiple modules separately, you will need to #include "cosi.h" instead and also #define cosi_standard_linkage in order to prevent linker errors.)
+Cosi requires no installation. For simple projects simply #include "cosi.c" and compile. Otherwise just #define cosi_standard_linkage and #include "cosi.h".
 
 ## Command Line Interpreter
 
