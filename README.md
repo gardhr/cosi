@@ -24,6 +24,7 @@ Cosi comes with a very simple VM for running scripts: `cosim`.
 
 `./cosim examples/typewrite.js` 
 
+
 ## Status
 
 The current version of Cosi (1.0) is now stable for release. No breaking changes will be allowed in the future. 
