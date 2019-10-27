@@ -31,14 +31,13 @@ SOFTWARE.
 
 cosi_extend(J, "include", cosi_cosi_include);
 cosi_extend(J, "sizeof", cosi_sizeof);
-cosi_extend(J, "put", cosi_put);
-cosi_extend(J, "fput", cosi_fput);
+cosi_extend(J, "clog", cosi_clog);
 cosi_extend(J, "get_memory", cosi_get_memory);
 cosi_extend(J, "set_memory", cosi_set_memory);
-cosi_extend(J, "bytes_to_text", cosi_bytes_to_text);
-cosi_extend(J, "text_to_bytes", cosi_text_to_bytes);
 cosi_extend(J, "get_byte", cosi_get_byte);
 cosi_extend(J, "set_byte", cosi_set_byte);
+cosi_extend(J, "bytes_to_text", cosi_bytes_to_text);
+cosi_extend(J, "text_to_bytes", cosi_text_to_bytes);
 cosi_extend(J, "envp", cosi_envp);
 cosi_extend(J, "argv", cosi_argv);
 

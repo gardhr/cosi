@@ -38,17 +38,10 @@ void
 }
 
 void
- cosi_put(js_State* state)
+ cosi_clog(js_State* state)
 {
- int result = printf("%s", cosi_tostring(state, 1));
- js_pushnumber(state, result);
-}
-
-void
- cosi_fput(js_State* state)
-{
- const char* text = cosi_tostring(state, 1);
- FILE* stream = cosi_topointer(state, 2);
+ FILE* stream = cosi_topointer(state, 1);
+ const char* text = cosi_tostring(state, 2);
  int result = fprintf(stream, "%s", text);
  js_pushnumber(state, result);
 }

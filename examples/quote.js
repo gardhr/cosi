@@ -6,11 +6,11 @@ for(var idx in args)
   continue
  while(true)
  {
-  var line = read_line(file)
-  if(line == null)
+  var input = read_line(file)
+  if(input == null)
    break
-  line = line.replace(/"/g, "\\\"")
-  prints("\"", line, "\\n", "\"" ) 
+  input = input.replace(/"/g, "\\\"")
+  print("\"", input, "\\n", "\"", "\n") 
  }
  fclose(file)
 }

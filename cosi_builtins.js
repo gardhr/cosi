@@ -73,7 +73,7 @@ function contain(routine, handler)
  var 
   exception = caught(routine, handler)
  if(exception)
-  prints("Error:", exception)
+  log_display("Error:", exception)
  return exception
 }
 
@@ -270,22 +270,37 @@ function file_to_object(file)
 /*
  Input and output
 */
-function print()
+
+function log_print(stream)
 {
  var args = arguments
- loop(args, function(index){
-  if(index != 0)
-   put(' ')
+ var first = 1
+ for(var index = first; index < args.length; ++index)
+ {
+  if(index > first)
+   clog(stream, ' ')
   var arg = args[index];
   if(arg === null)
    arg = '(null)'
   else if(arg === undefined)
    arg = '(undefined)'
-  put(arg.toString())
- })
+  clog(stream, arg.toString())
+ }
 }
 
-function prints()
+function log_display()
+{
+ log_print.apply(null, arguments)
+ putchar(0xa)
+}
+
+function print()
+{
+ [].unshift.call(arguments, stdout)
+ log_print.apply(null, arguments)
+}
+
+function display()
 {
  print.apply(null, arguments)
  putchar(0xa)
@@ -331,17 +346,33 @@ function read_line(stream)
 function prompt()
 {
  print.apply(null, arguments)
- put(' ')
+ clog(stdout, ' ')
  return read_line()
 }
 
-function script_arguments(skip)
+function script_arguments(skip_first)
 {
  var args = argv()
  var tab = []
  var align = sizeof('void*')
- if(skip !== false)
+ if(skip_first !== false)
   args += align
+ for(;;)
+ {
+  var ptr = get_memory(args)
+  if(ptr == NULL)
+   break
+  tab.push(bytes_to_text(ptr))
+  args += align
+ }
+ return tab
+}
+
+function script_environment()
+{
+ var args = envp()
+ var tab = []
+ var align = sizeof('void*')
  for(;;)
  {
   var ptr = get_memory(args)

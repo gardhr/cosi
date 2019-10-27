@@ -1,7 +1,3 @@
-
-prints("Sample Cosi Application")
-prints("(NOTE: default filename is 'main.js')")
-
 function tick()
 {
  return clock() / CLOCKS_PER_SEC
@@ -14,39 +10,55 @@ function wait(delay)
   continue
 }
 
-function print_mechanical(pace, text)
+function typewrite(pace, text)
 {
- srand(time(NULL))
- if(pace > 1)
-  pace = 1 / pace
-
- function put_mechanical(byte)
+ function typebyte(byte)
  {
   var modulated = pace * (rand() / RAND_MAX)
   putchar(byte)
   fflush(stdout)
   wait(modulated) 
- }
- 
+ } 
+ if(pace > 1)
+  pace = 1 / pace
  var combined = "";
  for(var idx = 1; idx < arguments.length; ++idx)
   combined += arguments[idx]
  var bytes = text_to_bytes(combined) 
  loop(combined, function(idx)
  {
-  put_mechanical(get_byte(bytes, idx))
+  typebyte(get_byte(bytes, idx))
  })
- put_mechanical(0xa)
+ typebyte(0xa)
  free(bytes)
 }
 
+function pick()
+{
+ return 1 / (rand() % 12 + 3)
+}
+
+function show()
+{
+ [].unshift.call(arguments, pick())
+ typewrite.apply(null, arguments) 
+}
+
+/*
+   Type something...
+*/
+
+srand(time(NULL))
+show("Sample Cosi Application")
+show("(NOTE: default filename is 'main.js')")
 var args = script_arguments()
 if(!args.length)
- args = [1/12]
+ args = [pick()]
 var text = file_to_text(script_path())
 loop(args, function(idx)
 {
  var pace = Number(args[idx])
- prints("*** Script (printed with", pace, "second delays) ***")
- print_mechanical(pace, text) 
+ show("*** Script (printed with ", pace, " second delays) ***")
+ typewrite(pace, text) 
 })
+show("Done!")
