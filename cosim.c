@@ -42,9 +42,10 @@ int
  {
   puts("Cosi Javascript Native Runtime");
   printf("Usage: %s script-name script-arg0 ...\n", argv[0]);
+  puts("Interactive mode: waiting for input...");
   char script[] = 
    "while(true)\n"
-   " contain(function(){ "
+   " contain(function(){ " 
    "  var result = eval(read_line())\n"
    "  display(result)\n"
    " })\n";
