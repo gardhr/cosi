@@ -392,8 +392,10 @@ function script_environment()
 
 function script_path()
 {
- var argv0 = get_memory(argv())
- return argv0 ? bytes_to_text(argv0) : null
+ var args = argv()
+ if(!args)
+  return null
+ return bytes_to_text(get_memory(args))
 }
 
 function process_directory(directory, callback)

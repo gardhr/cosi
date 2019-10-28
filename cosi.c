@@ -152,7 +152,7 @@ void
  cosi_main(cosi J, char** argv, char** envp)
 {
   cosi_data data = cosi_unpack(J);
-  data->argv = ++argv;
+  data->argv = argv ? ++argv : NULL;
   data->envp = envp;
 }
 
