@@ -1,4 +1,4 @@
-/* Mon Oct 28 04:21:38 2019 */
+/* Mon Oct 28 05:00:15 2019 */
 /* cosi_builtins.js */
 " /* \n " 
 " MIT License \n " 
@@ -407,8 +407,10 @@
 "  \n " 
 " function script_path() \n " 
 " { \n " 
-"  var argv0 = get_memory(argv()) \n " 
-"  return argv0 ? bytes_to_text(argv0) : null \n " 
+"  var args = argv() \n " 
+"  if(!args) \n " 
+"   return null \n " 
+"  return bytes_to_text(get_memory(args)) \n " 
 " } \n " 
 "  \n " 
 " function process_directory(directory, callback) \n " 
