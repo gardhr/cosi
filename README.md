@@ -27,7 +27,7 @@ Cosi comes with a very simple VM for running scripts: `cosim`.
 
 ## Status
 
-The current version of Cosi (1.0) is now stable for release. No breaking changes will be allowed in the future. 
+The current release of Cosi (1.0) is now stable. No breaking changes will be allowed in the future. 
 
 ## Caveats
 
@@ -313,6 +313,12 @@ Prints all of the arguments and then waits for user input from "stdin". Returns 
 `function utf_strlen(text)`
 
 Returns the utf-8 length of a String or raw C pointer.
+
+
+
+`function timestamp()`
+
+Returns the current time and date as a String.
 
 
 
