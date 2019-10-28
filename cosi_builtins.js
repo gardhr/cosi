@@ -353,7 +353,11 @@ function prompt()
 function script_arguments(skip_first)
 {
  var args = argv()
+ if(args == NULL)
+  return null
  var tab = []
+ if(get_memory(args) == NULL)
+  return tab
  var align = sizeof('void*')
  if(skip_first !== false)
   args += align
@@ -372,6 +376,8 @@ function script_environment()
 {
  var args = envp()
  var tab = []
+ if(args == NULL)
+  return null
  var align = sizeof('void*')
  for(;;)
  {
@@ -386,7 +392,8 @@ function script_environment()
 
 function script_path()
 {
- return bytes_to_text(get_memory(argv()))
+ var argv0 = get_memory(argv())
+ return argv0 ? bytes_to_text(argv0) : null
 }
 
 function process_directory(directory, callback)
