@@ -27,23 +27,37 @@ SOFTWARE.
 #include "cosi.c"
 
 int 
+ run(const char* script)
+{
+ if(!cosi_run(NULL, script))
+  puts(cosi_message(NULL));
+ return cosi_success(NULL) ? EXIT_SUCCESS : EXIT_FAILURE;
+}
+
+int 
  main(int argc, char** argv, char** envp)
 {
- size_t 
-  offset = 1;
- if (argc == 1)
-  argv[offset = 0] = "main.js";
- cosi_main(NULL, &argv[offset], envp);
+ cosi_main(NULL, argv, envp);
+ if(argc == 1)
+ {
+  puts("Cosi Javascript Native Runtime");
+  printf("Usage: %s script-name script-arg0 ...\n", argv[0]);
+  char script[] = 
+   "while(true)\n"
+   " contain(function(){ "
+   "  var result = eval(read_line())\n"
+   "  display(result)\n"
+   " })\n";
+  return run(script);
+ } 
  char 
-  * file = argv[offset],
+  * file = argv[1],
   format[] = 
    "var file = '%s'\n"
    "if(!file_to_task(file))\n"
    " if(!file_to_task(file + '.js'))\n"
    "  throw Error('cannot load file ' + file)",
-  script[sizeof(format) + strlen(file) * 2 + 1];
- sprintf(script, format, file, file);
- if (!cosi_run(NULL, script))
-  puts(cosi_message(NULL));
- return cosi_success(NULL) ? EXIT_SUCCESS : EXIT_FAILURE;
+  loader[sizeof(format) + strlen(file) * 2 + 1];
+ sprintf(loader, format, file, file);
+ return run(loader);
 }
