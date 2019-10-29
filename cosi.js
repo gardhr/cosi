@@ -29,7 +29,7 @@ var args = script_arguments(false)
 if(args.length == 0)
 {
  var path = bytes_to_text(get_memory(argv(), -1))
- display("Usage:", path, "script-name script-arg0 ...\n")
+ display("Usage:", path, "script-name script-arg0 ...")
  display("Interactive mode: waiting for input...")
  while(true)
   contain(function()
