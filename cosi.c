@@ -25,15 +25,15 @@ SOFTWARE.
 */
 
 #include "cosi_core.c"
+char* interpeter = 
+#include "cosi.txt"
+;
 
 int 
  main(int argc, char** argv, char** envp)
 {
  cosi_main(NULL, ++argv, envp);
- char script[] = 
-  " if(!file_to_task('cosi.js'))\n"
-  "  throw Error('cannot load cosi.js!')";
- if(!cosi_run(NULL, script))
+ if(!cosi_run(NULL, interpeter))
   puts(cosi_message(NULL));
  return cosi_success(NULL) ? EXIT_SUCCESS : EXIT_FAILURE;
 }
