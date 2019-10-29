@@ -25,7 +25,8 @@ SOFTWARE.
 */
 
 display("Cosi Javascript Native Runtime")
-if(script_arguments(false).length == 0)
+var args = script_arguments(false)
+if(args.length == 0)
 {
  var cosi = bytes_to_text(get_memory(argv(), -1))
  display("Usage:", cosi, "script-name script-arg0 ...")
