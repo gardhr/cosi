@@ -24,7 +24,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#include "all_cosi.c"
+#include "cosi_core.c"
 
 int 
  run(const char* script)
