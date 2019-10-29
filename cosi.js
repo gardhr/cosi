@@ -25,11 +25,10 @@ SOFTWARE.
 */
 
 display("Cosi Javascript Native Runtime")
-var args = script_arguments(false)
-if(args.length == 0)
+if(script_arguments(false).length == 0)
 {
- var path = bytes_to_text(get_memory(argv(), -1))
- display("Usage:", path, "script-name script-arg0 ...")
+ var cosi = bytes_to_text(get_memory(argv(), -1))
+ display("Usage:", cosi, "script-name script-arg0 ...")
  display("Interactive mode: waiting for input...")
  while(true)
   contain(function()

@@ -29,7 +29,7 @@ SOFTWARE.
 int 
  main(int argc, char** argv, char** envp)
 {
- cosi_main(NULL, argv, envp);
+ cosi_main(NULL, ++argv, envp);
  char script[] = 
   " if(!file_to_task('cosi.js'))\n"
   "  throw Error('cannot load cosi.js!')";
