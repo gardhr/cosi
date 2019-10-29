@@ -20,9 +20,9 @@ Cosi comes with a very simple VM for running scripts: `cosim`.
 
 `cd cosi`
 
-`gcc -o cosim -lm cosim.c`
+`gcc -o cosi -lm cosi.c`
 
-`./cosim examples/typewrite.js` 
+`./cosi examples/typewrite.js` 
 
 
 ## Status
