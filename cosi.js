@@ -24,16 +24,23 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#include "cosi_core.c"
-
-int 
- main(int argc, char** argv, char** envp)
+display("Cosi Javascript Native Runtime")
+var args = script_arguments()
+if(args.length == 0)
 {
- cosi_main(NULL, argv, envp);
- char script[] = 
-  " if(!file_to_task('cosi.js'))\n"
-  "  throw Error('cannot load cosi.js!')";
- if(!cosi_run(NULL, script))
-  puts(cosi_message(NULL));
- return cosi_success(NULL) ? EXIT_SUCCESS : EXIT_FAILURE;
+ display("Usage:", script_path(), "script-name script-arg0 ...\n")
+ display("Interactive mode: waiting for input...")
+ while(true)
+  contain(function()
+  {  
+   var result = eval(read_line())
+   display(result)
+  })
+}
+else 
+{
+ var file = args[0]
+ if(!file_to_task(file))
+  if(!file_to_task(file + '.js'))
+   throw Error('cannot load file ' + file)
 }
