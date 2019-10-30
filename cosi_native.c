@@ -76,24 +76,6 @@ void
 }
 
 void
- cosi_bytes_to_text_inplace(js_State* state)
-{
- char* data = cosi_topointer(state, 1);
- if(data == NULL)
- {
-  js_pushnull(state);
-  return;
- } 
- size_t size = js_tonumber(state, 2);
- if (size == 0)
-   size = strlen(data);
- char saved = data[size];
- data[size] = 0;
- js_pushstring(state, data);
- data[size] = saved;
-}
-
-void
  cosi_bytes_to_text(js_State* state)
 {
  char* data = cosi_topointer(state, 1);
@@ -181,6 +163,7 @@ void
   }
   js_pushundefined(state);
 }
+
 void
 cosi_get_memory(js_State* state)
 {
