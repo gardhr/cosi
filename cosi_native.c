@@ -106,21 +106,111 @@ void
 }
 
 void
+ cosi_set_byte(js_State* state)
+{
+ char* data = cosi_topointer(state, 1);
+ size_t index = js_tonumber(state, 2);
+ int value = cosi_tobyte(state, 3);
+ data[index] = value;
+ js_pushundefined(state);
+}
+
+void
+ cosi_set_short(js_State* state)
+{
+ short* data = cosi_topointer(state, 1);
+ size_t index = js_tonumber(state, 2);
+ double value = js_tonumber(state, 3);
+ data[index] = value;
+ js_pushundefined(state);
+}
+
+void
+ cosi_set_int(js_State* state)
+{
+ int* data = cosi_topointer(state, 1);
+ size_t index = js_tonumber(state, 2);
+ double value = js_tonumber(state, 3);
+ data[index] = value;
+ js_pushundefined(state);
+}
+
+void
+ cosi_set_long(js_State* state)
+{
+ long* data = cosi_topointer(state, 1);
+ size_t index = js_tonumber(state, 2);
+ double value = js_tonumber(state, 3);
+ data[index] = value;
+ js_pushundefined(state);
+}
+
+void
+ cosi_set_float(js_State* state)
+{
+ float* data = cosi_topointer(state, 1);
+ size_t index = js_tonumber(state, 2);
+ double value = js_tonumber(state, 3);
+ data[index] = value;
+ js_pushundefined(state);
+}
+
+void
+ cosi_set_double(js_State* state)
+{
+ double* data = cosi_topointer(state, 1);
+ size_t index = js_tonumber(state, 2);
+ double value = js_tonumber(state, 3);
+ data[index] = value;
+ js_pushundefined(state);
+}
+
+void
  cosi_get_byte(js_State* state)
 {
- unsigned char* data = cosi_topointer(state, 1);
+ char* data = cosi_topointer(state, 1);
  size_t index = js_tonumber(state, 2);
  js_pushnumber(state, data[index]);
 }
 
 void
- cosi_set_byte(js_State* state)
+ cosi_get_short(js_State* state)
 {
- unsigned char* data = cosi_topointer(state, 1);
+ short* data = cosi_topointer(state, 1);
  size_t index = js_tonumber(state, 2);
- int value = cosi_tobyte(state, 3);
- data[index] = value;
- js_pushundefined(state);
+ js_pushnumber(state, data[index]);
+}
+
+void
+ cosi_get_int(js_State* state)
+{
+ int* data = cosi_topointer(state, 1);
+ size_t index = js_tonumber(state, 2);
+ js_pushnumber(state, data[index]);
+}
+
+void
+ cosi_get_long(js_State* state)
+{
+ long* data = cosi_topointer(state, 1);
+ size_t index = js_tonumber(state, 2);
+ js_pushnumber(state, data[index]);
+}
+
+void
+ cosi_get_float(js_State* state)
+{
+ float* data = cosi_topointer(state, 1);
+ size_t index = js_tonumber(state, 2);
+ js_pushnumber(state, data[index]);
+}
+
+void
+ cosi_get_double(js_State* state)
+{
+ double* data = cosi_topointer(state, 1);
+ size_t index = js_tonumber(state, 2);
+ js_pushnumber(state, data[index]);
 }
 
 void

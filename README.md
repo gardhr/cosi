@@ -216,7 +216,7 @@ Returns the size of some native C type. If typename contains an asterisk ("\*") 
 
 `function get_byte(pointer, index)`
 
-Returns the byte at "index" of a raw C buffer.
+Returns the value at "index" of a raw C buffer of chars. 
 
 
 
@@ -226,12 +226,73 @@ Sets the byte at "index" of a raw C buffer to "value".
 
 
 
+`function get_short(pointer, index)`
+
+Returns the value at "index" of a raw C buffer of shorts. 
+
+
+
+`function set_short(pointer, index, value)`
+
+Sets the short at "index" of a raw C buffer to "value". 
+
+
+
+`function get_int(pointer, index)`
+
+Returns the value at "index" of a raw C buffer of ints. 
+
+
+
+`function set_int(pointer, index, value)`
+
+Sets the int at "index" of a raw C buffer to "value". 
+
+
+
+`function get_long(pointer, index)`
+
+Returns the value at "index" of a raw C buffer of longs. 
+
+
+
+`function set_long(pointer, index, value)`
+
+Sets the long at "index" of a raw C buffer to "value". 
+
+
+
+`function get_long(pointer, index)`
+
+Returns the value at "index" of a raw C buffer of longs. 
+
+
+
+`function set_float(pointer, index, value)`
+
+Sets the float at "index" of a raw C buffer to "value". 
+
+
+
+`function get_double(pointer, index)`
+
+Returns the value at "index" of a raw C buffer of doubles. 
+
+
+
+`function set_double(pointer, index, value)`
+
+Sets the double at "index" of a raw C buffer to "value". 
+
+
+`(DEPRECATED)`
 `function get_memory(pointer, index, width)`
 
 Returns the element at "index" of a raw C buffer. The "width" parameter determines how the pointer is dereferenced and MUST be the size of some native C type (int, double, void*, etc).
 
 
 
+`(DEPRECATED)`
 `function set_memory(pointer, index, value, width)`
 
 Sets the element at "index" of a raw C buffer to "value". The "width" parameter determines how the pointer is dereferenced and MUST be the size of some native C type.
