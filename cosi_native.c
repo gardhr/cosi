@@ -48,29 +48,30 @@ void
  int result = 0;
  if (strstr(what, "*") != NULL)
   result = sizeof(void*);
- else if (!strcmp(what, "char"))
-  result = sizeof(char);
- else if (!strcmp(what, "short"))
-  result = sizeof(short);
- else if (!strcmp(what, "int"))
-  result = sizeof(int);
- else if (!strcmp(what, "long"))
+ else if (strstr(what, "long"))
   result = sizeof(long);
+ else if (strstr(what, "char"))
+  result = sizeof(char);
+ else if (strstr(what, "short"))
+  result = sizeof(short);
+ else if (strstr(what, "int"))
+  result = sizeof(int);
+// TODO: remove for C++ compatability?
  else if (!strcmp(what, "long long"))
   result = sizeof(long long);
- else if (!strcmp(what, "float"))
+ else if (strstr(what, "float"))
   result = sizeof(float);
- else if (!strcmp(what, "double"))
+ else if (strstr(what, "double"))
   result = sizeof(double);
- else if (!strcmp(what, "size_t"))
+ else if (strstr(what, "size_t"))
   result = sizeof(size_t);
- else if (!strcmp(what, "fpos_t"))
+ else if (strstr(what, "fpos_t"))
   result = sizeof(fpos_t);
- else if (!strcmp(what, "wchar_t"))
+ else if (strstr(what, "wchar_t"))
   result = sizeof(wchar_t);
- else if (!strcmp(what, "div_t"))
+ else if (strstr(what, "div_t"))
   result = sizeof(div_t);
- else if (!strcmp(what, "ldiv_t"))
+ else if (strstr(what, "ldiv_t"))
   result = sizeof(ldiv_t);
  js_pushnumber(state, result);
 }
