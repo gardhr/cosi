@@ -46,6 +46,8 @@ cosi_extend(J, "get_float", cosi_get_float);
 cosi_extend(J, "set_float", cosi_set_float);
 cosi_extend(J, "get_double", cosi_get_double);
 cosi_extend(J, "set_double", cosi_set_double);
+cosi_extend(J, "get_pointer", cosi_get_pointer);
+cosi_extend(J, "set_pointer", cosi_set_pointer);
 cosi_extend(J, "bytes_to_text", cosi_bytes_to_text);
 cosi_extend(J, "text_to_bytes", cosi_text_to_bytes);
 cosi_extend(J, "envp", cosi_envp);

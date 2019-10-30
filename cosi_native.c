@@ -166,6 +166,16 @@ void
 }
 
 void
+ cosi_set_pointer(js_State* state)
+{
+ void** data = cosi_topointer(state, 1);
+ size_t index = js_tonumber(state, 2);
+ void* value = cosi_topointer(state, 3);
+ data[index] = value;
+ js_pushundefined(state);
+}
+
+void
  cosi_get_byte(js_State* state)
 {
  char* data = cosi_topointer(state, 1);
@@ -211,6 +221,14 @@ void
  double* data = cosi_topointer(state, 1);
  size_t index = js_tonumber(state, 2);
  js_pushnumber(state, data[index]);
+}
+
+void
+ cosi_get_pointer(js_State* state)
+{
+ void** data = cosi_topointer(state, 1);
+ size_t index = js_tonumber(state, 2);
+ cosi_pushpointer(state, data[index]);
 }
 
 void

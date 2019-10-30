@@ -285,6 +285,18 @@ Returns the value at "index" of a raw C buffer of doubles.
 Sets the double at "index" of a raw C buffer to "value". 
 
 
+`function set_pointer(pointer, index, value)`
+
+Sets the pointer at "index" of a raw C array of pointers to "value". 
+
+
+
+`function get_pointer(pointer, index)`
+
+Returns the pointer at "index" of a raw C buffer of array of pointers. 
+
+
+
 `(DEPRECATED)`
 `function get_memory(pointer, index, width)`
 
