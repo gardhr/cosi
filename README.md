@@ -236,6 +236,18 @@ Sets the short at "index" of a raw C buffer to "value".
 
 
 
+`function get_ushort(pointer, index)`
+
+Returns the value at "index" of a raw C buffer of unsigned shorts. 
+
+
+
+`function set_ushort(pointer, index, value)`
+
+Sets the unsigned short at "index" of a raw C buffer to "value". 
+
+
+
 `function get_int(pointer, index)`
 
 Returns the value at "index" of a raw C buffer of ints. 
@@ -245,6 +257,18 @@ Returns the value at "index" of a raw C buffer of ints.
 `function set_int(pointer, index, value)`
 
 Sets the int at "index" of a raw C buffer to "value". 
+
+
+
+`function get_uint(pointer, index)`
+
+Returns the value at "index" of a raw C buffer of unsigned ints. 
+
+
+
+`function set_uint(pointer, index, value)`
+
+Sets the unsigned int at "index" of a raw C buffer to "value". 
 
 
 
@@ -260,9 +284,15 @@ Sets the long at "index" of a raw C buffer to "value".
 
 
 
-`function get_long(pointer, index)`
+`function get_ulong(pointer, index)`
 
-Returns the value at "index" of a raw C buffer of longs. 
+Returns the value at "index" of a raw C buffer of unsigned longs. 
+
+
+
+`function set_long(pointer, index, value)`
+
+Sets the unsigned long at "index" of a raw C buffer to "value". 
 
 
 
@@ -805,3 +835,4 @@ DT_DIR
 DT_REG
 
 DT_SOCK
+    
