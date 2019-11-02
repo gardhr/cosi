@@ -219,7 +219,11 @@ function text_to_function(script, imports)
   return null
  var result = null
  escape(function(){
-  var bundled = 'return function(){' + script + '}'
+  var bundled = 
+   'return function(){ ' + 
+   ' var exports, module = { exports : null };' +
+   script + 
+   '; return exports ? exports : module.exports }'
   var invoke = new Function('imports', bundled)
   result = invoke(imports)
  })
