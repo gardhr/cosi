@@ -434,3 +434,20 @@ function process_directory(directory, callback)
  }
  chdir(saved)
 }
+
+function text_to_array(text)
+{
+ var arr = []
+ for(var tdx = 0, len = text.length; tdx < len; ++tdx)
+  arr.push(text.charCodeAt(tdx))  
+ return arr
+}
+
+function array_to_text(array)
+{ 
+ var txt = ""
+ for(var tdx = 0, len = array.length; tdx < len; ++tdx)
+  txt += String.fromCharCode(array[tdx])  
+ return txt
+}
+

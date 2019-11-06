@@ -446,6 +446,19 @@ Returns the name of a file obtained from the 'readdir' function.
 Returns a bitmask of the file obtained from the 'readdir' function.
 
 
+
+`function text_to_array(text)`
+
+Converts a String to an array of utf-8.
+
+
+
+`function array_to_text(array)`
+
+Converts an array of utf-8 to String.
+
+
+
 ## Implemented C Functions and Constants
 
 // global pointers
