@@ -220,10 +220,11 @@ function text_to_function(script, imports)
  var result = null
  escape(function(){
   var bundled = 
-   'return function(){ ' + 
-   ' var exports, module = { exports : null };' +
+   'return function(){' + 
+   ' var module = { exports : null };' +
+   ' var exports = (function(){' +
    script + 
-   '; return exports ? exports : module.exports }'
+   '})(); return exports ? exports : module.exports }'
   var invoke = new Function('imports', bundled)
   result = invoke(imports)
  })
