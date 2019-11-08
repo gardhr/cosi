@@ -290,7 +290,7 @@ Returns the value at "index" of a raw C buffer of unsigned longs.
 
 
 
-`function set_long(pointer, index, value)`
+`function set_ulong(pointer, index, value)`
 
 Sets the unsigned long at "index" of a raw C buffer to "value". 
 
@@ -375,25 +375,25 @@ Prints a raw C string or String object to a C file stream. No other types are al
 
 
 
-`function log_print(stream, args...)`
+`function log_display(stream, args...)`
 
 Prints the arguments to C file stream, inserting a space between each one.
 
 
 
-`function log_display(stream, args...)`
+`function log_print(stream, args...)`
 
 Same as above but prints a newline character after all arguments have been processed.
 
 
 
-`function print(args...)`
+`function display(args...)`
 
 Prints the arguments, inserting a space between each one.
 
 
 
-`function display(args...)`
+`function print(args...)`
 
 Same as above but prints a newline character after all arguments have been processed.
 
