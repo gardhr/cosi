@@ -27,15 +27,15 @@ SOFTWARE.
 var args = script_arguments(false)
 if(args.length == 0)
 {
- display("Cosi Javascript Native Runtime")
+ print("Cosi Javascript Native Runtime")
  var cosi = bytes_to_text(get_memory(argv(), -1))
- display("Usage:", cosi, "script-name script-arg0 ...")
- display("Interactive mode: waiting for input...")
+ print("Usage:", cosi, "script-name script-arg0 ...")
+ print("Interactive mode: waiting for input...")
  while(true)
   contain(function()
   {  
    var result = eval(read_line())
-   display(result)
+   print(result)
   })
 }
 else 

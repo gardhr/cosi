@@ -73,7 +73,7 @@ function contain(routine, handler)
  var 
   exception = caught(routine, handler)
  if(exception)
-  display("Error:", exception)
+  print("Error:", exception)
  return exception
 }
 
@@ -276,7 +276,7 @@ function file_to_object(file)
  Input and output
 */
 
-function log_print(stream)
+function log_display(stream)
 {
  var args = arguments
  var first = 1
@@ -293,22 +293,22 @@ function log_print(stream)
  }
 }
 
-function log_display()
+function log_print()
 {
- log_print.apply(null, arguments)
+ log_display.apply(null, arguments)
  putchar(0xa)
+}
+
+function display()
+{
+ [].unshift.call(arguments, stdout)
+ log_display.apply(null, arguments)
 }
 
 function print()
 {
  [].unshift.call(arguments, stdout)
  log_print.apply(null, arguments)
-}
-
-function display()
-{
- print.apply(null, arguments)
- putchar(0xa)
 }
 
 function read_line(stream)
@@ -350,7 +350,7 @@ function read_line(stream)
 
 function prompt()
 {
- print.apply(null, arguments)
+ display.apply(null, arguments)
  clog(stdout, ' ')
  return read_line()
 }
