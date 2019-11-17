@@ -77,7 +77,7 @@ function contain(routine, handler)
  return exception
 }
 
-function escaped(routine, handler)
+function escape(routine, handler)
 {
  try
  {
@@ -107,7 +107,7 @@ function loop(control, action)
    control,
   start = control.begin 
    || control.start || 0
- escaped(function(){
+ escape(function(){
   for(var idx = start; idx < count; ++idx)
   {
    result = action(idx, control)
