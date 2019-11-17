@@ -74,12 +74,12 @@ if(confirm("Update configuration file with these settings?"))
   print("Warning: cannot create `config.js`")
 backup("cosi.txt")
 backup("cosi_builtins.txt")
-var preamble = cosi + " examples/quote " 
+var quote = { js : cosi + " examples/quote" }
 var commands = 
 [
  compile, 
- preamble + "cosi.js > cosi.txt", 
- preamble + "cosi_builtins.js > cosi_builtins.txt"
+ quote.js + " cosi.js > cosi.txt", 
+ quote.js + " cosi_builtins.js > cosi_builtins.txt"
 ]
 print("The following commands will be invoked:\n")
 for(var cdx in commands)
