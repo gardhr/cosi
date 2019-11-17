@@ -3,6 +3,11 @@ function char(text)
  return text.charCodeAt(0)
 }
 
+function empty(text)
+{
+ return text == null || text == ""
+}
+
 function object_to_file(object, file)
 {
  var flg = false, dsc = "{"
@@ -28,7 +33,7 @@ function aquire(message, preset)
  var result = prompt(
   message + 
   "(default: " + 
-  preset + 
+  (empty(preset) ? "undefined" : preset) + 
   ")\n>") || 
   preset
  print(message, result)
@@ -44,48 +49,85 @@ function confirm(message)
 
 function backup(file)
 {
- var copy = file + ".backup"
- if(!text_to_file(file_to_text(file), copy))
+ var data = file_to_bytes({ file: file })
+ if(data == null)
+  return print("Warning: failed to read file", file) 
+ var copy = file + ".backup",
+  bytes = data.bytes, 
+  length = data.length
+ if(!bytes_to_file(bytes, copy, length))
   print("Warning: cannot create backup of `" + file + "`")
  else 
   print("Note: made backup file `" + copy + "`")
+ free(bytes)
 }
 
 print("Cosi Build Script")
+var format = 
+{
+ compile: "gcc -lm -o cosi cosi.c", 
+ clean: "rm cosi",
+ test: "./cosi",
+ cosi_path: "", 
+ bin_directory: "",
+ interactive: true
+}
 var config = null
 contain(function()
 {
  config = file_to_object("config.js")
 })
-if(config == null)
+function incompatible()
 {
- config = 
- {
-  compile : "gcc -lm -o cosi cosi.c", 
-  cosi: "cosi"
- }
+ for(var key in format)
+  if(typeof(config[key]) === "undefined")
+   return true
+ return false
 }
-var compile = config.compile = 
- aquire("Compile command", config.compile) 
-var cosi = config.cosi = 
- aquire("Cosi", config.cosi)
-if(confirm("Update config file with these settings?"))
- if(!object_to_file(config, "config.js"))
-  print("Warning: cannot create `config.js`")
+if(config == null || incompatible())
+ config = format
+if(config.interactive)
+{
+ config.compile = 
+  aquire("Compile command", config.compile) 
+ config.cosi_path = 
+  aquire("Path to cosi", config.cosi_path)
+ config.bin_path = 
+  aquire("System `bin` directory", config.bin_path)
+ config.interactive = 
+  aquire("Always in interactive mode", config.interactive) 
+ if(confirm("Update config file with these settings?"))
+  if(!object_to_file(config, "config.js"))
+   print("Warning: cannot create `config.js`")
+}
 backup("cosi.txt")
 backup("cosi_builtins.txt")
-var quote = { js : cosi + " examples/quote" }
-var commands = 
+var prefix = config.cosi_path
+if(!empty(prefix))
+ prefix += "/"
+var quote_js = prefix + "cosi examples/quote ",
+ backup_builtins = quote_js + 
+  "cosi_builtins.js > cosi_builtins.txt",
+ backup_interpreter = quote_js + 
+  "cosi.js > cosi.txt",
+ commands = 
 [
- compile, 
- quote.js + " cosi.js > cosi.txt", 
- quote.js + " cosi_builtins.js > cosi_builtins.txt"
+ config.clean,
+ backup_builtins,
+ backup_interpreter,
+ config.compile,
+ config.test
 ]
 print("The following commands will be invoked:\n")
-for(var cdx in commands)
- print(commands[cdx])
+for(var cdx = 0; cdx < commands.length; ++cdx)
+ if(!empty(commands[cdx]))
+  print(commands[cdx])
 if(!confirm("\nProceed?")) 
  return print("Aborting...")
-for(var cdx in commands)
- system(commands[cdx])
+for(var cdx = 0; cdx < commands.length; ++cdx)
+ if(!empty(commands[cdx]))
+  system(commands[cdx])
+var cbd = config.bin_path
+if(!empty(cbd))
+ backup(cbd + "/cosi")
 print("Done!")

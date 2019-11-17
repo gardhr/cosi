@@ -73,7 +73,12 @@ function contain(routine, handler)
  var 
   exception = caught(routine, handler)
  if(exception)
+ {
   print("Error:", exception)
+  var est = exception.stackTrace
+  if(est)
+   print(est)
+ }
  return exception
 }
 
@@ -451,4 +456,3 @@ function array_to_text(array)
   txt += String.fromCharCode(array[tdx])  
  return txt
 }
-

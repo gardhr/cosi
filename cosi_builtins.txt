@@ -1,4 +1,4 @@
-/* Sun Nov 17 01:06:44 2019 */
+/* Sun Nov 17 13:48:12 2019 */
 /* cosi_builtins.js */
 " /* \n " 
 " MIT License \n " 
@@ -87,7 +87,12 @@
 "  var  \n " 
 "   exception = caught(routine, handler) \n " 
 "  if(exception) \n " 
+"  { \n " 
 "   print(\"Error:\", exception) \n " 
+"   var est = exception.stackTrace \n " 
+"   if(est) \n " 
+"    print(est) \n " 
+"  } \n " 
 "  return exception \n " 
 " } \n " 
 "  \n " 
@@ -466,4 +471,3 @@
 "   txt += String.fromCharCode(array[tdx])   \n " 
 "  return txt \n " 
 " } \n " 
-"  \n " 

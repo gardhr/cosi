@@ -27,7 +27,7 @@ SOFTWARE.
 var args = script_arguments(false)
 if(args.length == 0)
 {
- print("Cosi Javascript Native Runtime")
+ print("The Cosi Javascript Native Runtime")
  var cosi = bytes_to_text(get_memory(argv(), -1))
  print("Usage:", cosi, "script-name script-arg0 ...")
  print("Interactive mode: waiting for input...")
