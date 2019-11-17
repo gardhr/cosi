@@ -69,7 +69,7 @@ var compile = config.compile =
  aquire("Compile command", config.compile) 
 var cosi = config.cosi = 
  aquire("Cosi", config.cosi)
-if(confirm("Update configuration file with these settings?"))
+if(confirm("Update config file with these settings?"))
  if(!object_to_file(config, "config.js"))
   print("Warning: cannot create `config.js`")
 backup("cosi.txt")
