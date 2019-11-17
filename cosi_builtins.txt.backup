@@ -1,4 +1,4 @@
-/* Sun Nov 17 00:32:37 2019 */
+/* Sun Nov 17 00:54:50 2019 */
 /* cosi_builtins.js */
 " /* \n " 
 " MIT License \n " 
@@ -91,7 +91,7 @@
 "  return exception \n " 
 " } \n " 
 "  \n " 
-" function escape(routine, handler) \n " 
+" function escaped(routine, handler) \n " 
 " { \n " 
 "  try \n " 
 "  { \n " 
@@ -121,7 +121,7 @@
 "    control, \n " 
 "   start = control.begin  \n " 
 "    || control.start || 0 \n " 
-"  escape(function(){ \n " 
+"  escaped(function(){ \n " 
 "   for(var idx = start; idx < count; ++idx) \n " 
 "   { \n " 
 "    result = action(idx, control) \n " 

@@ -34,18 +34,18 @@ var imports = {}
  Utilities
 */
 
-function egress(exception)
+function escape(exception)
 { 
  if(exception)
   throw exception
- if(!(this instanceof egress))
-  egress(new egress()) 
+ if(!(this instanceof escape))
+  escape(new escape()) 
 }
 
 function verify(object, exception)
 {
  if(!object)
-  egress(exception)
+  escape(exception)
 }
 
 function fail(condition, exception)
@@ -86,11 +86,11 @@ function escaped(routine, handler)
  }
  catch(exception)
  {
-  if(exception instanceof egress)
+  if(exception instanceof escape)
    return true
   if(handler)
    handler(exception)
-  egress(exception) 
+  escape(exception) 
  }
 }
 
