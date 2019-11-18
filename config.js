@@ -3,6 +3,6 @@
  clean : '',
  compile : 'gcc -lm -o cosi cosi.c',
  cosi_path : '',
- interactive : true,
+ interactive : false,
  test : './cosi'
 }

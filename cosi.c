@@ -24,7 +24,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#include "cosi_core.c"
+#include "imbed.c"
 char* interpeter = 
 #include "cosi.txt"
 ;

@@ -109,13 +109,13 @@ if(config.interactive)
    print("Warning: cannot create `config.js`")
 }
 backup("cosi.txt")
-backup("cosi_builtins.txt")
+backup("builtins.txt")
 var prefix = config.cosi_path
 if(!empty(prefix))
  prefix += "/"
 var quote_js = prefix + "cosi examples/quote ",
  backup_builtins = quote_js + 
-  "cosi_builtins.js > cosi_builtins.txt",
+  "builtins.js > builtins.txt",
  backup_interpreter = quote_js + 
   "cosi.js > cosi.txt",
  commands = 

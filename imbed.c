@@ -23,25 +23,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+#ifndef cosi_imbed_c_included
+#define cosi_imbed_c_included
 
-#ifndef cosi_internal_h_included
-#define cosi_internal_h_included
+#include "cosi.h"
+#include "mujs/one.c"
+#include "core.c"
 
-#include "cosi_includes.h"
-
-/*
-        MUJS interface helper functions
-*/
-
-void
-cosi_pushpointer(js_State* state, void* address);
-void
-cosi_pushnumber(js_State* state, double value);
-void*
-cosi_topointer(js_State* state, int index);
-char*
-cosi_tostring(js_State* state, int index);
-int
-cosi_tobyte(js_State* state, int index);
-
-#endif // cosi_internal_h_included
+#endif

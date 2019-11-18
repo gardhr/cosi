@@ -26,17 +26,13 @@ SOFTWARE.
 
 #include "cosi.h"
 
-#ifndef cosi_standard_linkage
-#include "cosi_internal.c"
-#include "mujs/one.c"
-#endif
-
 /*
  This is automatically
  generated...do not edit!
 */
-#include "cosi_native.c"
-#include "cosi_std.c"
+#include "native.c"
+#include "internal.c"
+#include "std.c"
 /*
  That was automatically
  generated...do not edit!
@@ -205,12 +201,12 @@ cosi
  generated...do not edit!
 */
 
-#include "cosi_configured.c"
+#include "configured.c"
 
 const char* 
  builtins = 
 ""
-#include "cosi_builtins.txt"
+#include "builtins.txt"
 "";
 
 if(!cosi_run(J, builtins))
