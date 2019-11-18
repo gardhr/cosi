@@ -848,4 +848,8 @@ DT_DIR
 DT_REG
 
 DT_SOCK
+
+## POSIX support
+
+Cosi is slowly starting to adopt POSIX functionality. If you just don't want any of those features then just be sure to "#define cosi_no_posix". 
     
