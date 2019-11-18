@@ -1,10 +1,8 @@
 {
- Test : './cosi',
- bin_directory : '',
- bin_path : undefined,
- clean : ' ',
+ bin_path : '',
+ clean : '',
  compile : 'gcc -lm -o cosi cosi.c',
  cosi_path : '',
- interactive : false,
+ interactive : true,
  test : './cosi'
 }

@@ -64,18 +64,21 @@ function aquire(key, message)
   ": (default is " + 
   see(preset) + 
   ")\n>"
- ) || 
+ )
+ || 
   preset
+ if(result == " ") 
+  result = "" 
  print(message, "is", see(result))
  return config[key] = result
 }
 var format = 
 {
  compile: "gcc -lm -o cosi cosi.c", 
- clean: "rm cosi",
+ clean: "",
  test: "./cosi",
  cosi_path: "", 
- bin_directory: "",
+ bin_path: "",
  interactive: true
 }
 function incompatible()
@@ -94,13 +97,13 @@ if(config == null || incompatible())
 if(config.interactive)
 {
  aquire("interactive", "Always in interactive mode") 
+ config.interactive = 
+  (config.interactive !== "false") 
  aquire("cosi_path", "Path to cosi")
  aquire("bin_path", "System `bin` directory")
  aquire("clean", "Cleanup command") 
  aquire("compile", "Compile command") 
- aquire("Test", "Test command") 
- config.interactive = 
-  (config.interactive === "false") 
+ aquire("test", "Test command") 
  if(confirm("Update config file with these settings?"))
   if(!object_to_file(config, "config.js"))
    print("Warning: cannot create `config.js`")
