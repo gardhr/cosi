@@ -27,6 +27,10 @@ Cosi comes with a very simple VM for running scripts: `cosi`.
 
 The current release of Cosi (1.0) is pretty stable. I try not to introduce any breaking changes but seeing that it's just a personal project it probably doesn't really matter much for now. ;)
 
+## POSIX support
+
+Cosi is slowly starting to adopt POSIX functionality. If you just don't want any of those features then just be sure to "#define cosi_no_posix". 
+    
 ## Caveats
 
 Proper use of Cosi requires at the very least a fairly basic understanding of the C programming language.
@@ -815,6 +819,10 @@ LLONG_MAX
 
 ULLONG_MAX
 
+/*
+ POSIX functions
+*/
+
 // dirent.h
 
 getcwd
@@ -849,7 +857,3 @@ DT_REG
 
 DT_SOCK
 
-## POSIX support
-
-Cosi is slowly starting to adopt POSIX functionality. If you just don't want any of those features then just be sure to "#define cosi_no_posix". 
-    
