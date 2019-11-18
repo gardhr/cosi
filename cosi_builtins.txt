@@ -1,4 +1,4 @@
-/* Sun Nov 17 14:50:10 2019 */
+/* Mon Nov 18 05:34:26 2019 */
 /* cosi_builtins.js */
 " /* \n " 
 " MIT License \n " 
@@ -238,7 +238,7 @@
 "  if(!script) \n " 
 "   return null \n " 
 "  var result = null \n " 
-"  escape(function(){ \n " 
+"  contain(function(){ \n " 
 "   var bundled =  \n " 
 "    'return function(){' +  \n " 
 "    ' var module = { exports : null };' + \n " 

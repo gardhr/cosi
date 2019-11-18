@@ -27,16 +27,25 @@ SOFTWARE.
 var args = script_arguments(false)
 if(args.length == 0)
 {
- print("Cosi Javascript Native Runtime")
+ print("The Cosi Javascript Native Runtime")
  var cosi = bytes_to_text(get_memory(argv(), -1))
  print("Usage:", cosi, "script-name script-arg0 ...")
  print("Interactive mode: waiting for input...")
  while(true)
-  contain(function()
+ {
+  try
   {  
    var result = eval(read_line())
-   print(result)
-  })
+   if(result !== undefined)
+    print(result)
+  }
+  catch(error)
+  {
+   print("Error:", error)
+   if(error.stackTrace)
+    print(error.stackTrace)
+  }
+ }
 }
 else 
 {

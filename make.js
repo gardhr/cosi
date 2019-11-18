@@ -66,7 +66,7 @@ function aquire(key, message)
   ")\n>"
  ) || 
   preset
- print(message, "is:", see(result))
+ print(message, "is", see(result))
  return config[key] = result
 }
 var format = 
@@ -93,10 +93,12 @@ if(config == null || incompatible())
  config = format
 if(config.interactive)
 {
- aquire("compile", "Compile command") 
+ aquire("interactive", "Always in interactive mode") 
  aquire("cosi_path", "Path to cosi")
  aquire("bin_path", "System `bin` directory")
- aquire("interactive", "Always in interactive mode") 
+ aquire("clean", "Cleanup command") 
+ aquire("compile", "Compile command") 
+ aquire("Test", "Test command") 
  config.interactive = 
   (config.interactive === "false") 
  if(confirm("Update config file with these settings?"))

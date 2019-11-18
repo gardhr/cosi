@@ -223,7 +223,7 @@ function text_to_function(script, imports)
  if(!script)
   return null
  var result = null
- escape(function(){
+ contain(function(){
   var bundled = 
    'return function(){' + 
    ' var module = { exports : null };' +
