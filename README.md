@@ -9,7 +9,7 @@ Cosi is a cross-platform ES5 Javascript native runtime C library and interpreter
 
 ## Installation
 
-Cosi requires no installation. For single-module projects just #include "cosi.c" and compile. Otherwise simply #define cosi_standard_linkage and #include "cosi.h".
+Cosi requires no installation. For single-module projects simply #include "cosi/imbed.c" and compile. Otherwise you'll need to compile everything separately then #include "cosi/cosi.h" and link with "cosi/core.o".
 
 ## Command Line Interpreter
 
@@ -130,7 +130,7 @@ Returns a String containing the contents of a buffer. If "len" is zero then strl
 
 `function file_to_bytes(file)`
 
-Returns a pointer to a buffer containing the contents of a file. Memory management of the buffer is the responsibility of the caller (use the free() function). 
+Returns a pointer to a buffer containing the contents of a `file`. If instead the argument is an object with a `file` property then the properties `length` and `bytes` are appended and the object is returned in place of a raw pointer. Memory management of the buffer is the responsibility of the caller (use the free() function). 
 
 
 
