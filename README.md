@@ -209,11 +209,24 @@ Same as above but using the contents of a file instead of a String.
 Imports a file directly into the current global space.
 
 
-
+`(DEPRECATED)`
 `function sizeof(typename)`
 
-Returns the size of some native C type. If typename contains an asterisk ("\*") then the size of a pointer is returned.
+Returns the size of some native C type. If typename contains an asterisk ("\*") then the size of a pointer is returned. Note: this function is very inefficient. 
 
+`sizeof_char` Constant for the size of signed/unsigned char.
+
+`sizeof_short` Constant for the size of signed/unsigned short.
+
+`sizeof_int` Constant for the size of signed/unsigned int.
+
+`sizeof_long` Constant for the size of signed/unsigned long.
+
+`sizeof_float` Constant for the size of a float.
+
+`sizeof_double` Constant for the size of a double.
+
+`sizeof_pointer` Constant for the size of a pointer.
 
 
 `function get_byte(pointer, index)`
