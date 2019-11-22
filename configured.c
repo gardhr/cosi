@@ -29,6 +29,14 @@ SOFTWARE.
  generated...do not edit!
 */
 
+cosi_define(J, "sizeof_char", sizeof(char));
+cosi_define(J, "sizeof_short", sizeof(short));
+cosi_define(J, "sizeof_int", sizeof(int));
+cosi_define(J, "sizeof_long", sizeof(long));
+cosi_define(J, "sizeof_float", sizeof(float));
+cosi_define(J, "sizeof_double", sizeof(double));
+cosi_define(J, "sizeof_pointer", sizeof(void*));
+
 cosi_extend(J, "include", cosi_cosi_include);
 cosi_extend(J, "sizeof", cosi_sizeof);
 cosi_extend(J, "clog", cosi_clog);
