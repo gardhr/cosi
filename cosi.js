@@ -31,17 +31,30 @@ if(args.length == 0)
  var cosi = bytes_to_text(get_memory(argv(), -1))
  print("Usage:", cosi, "script-name script-arg0 ...")
  print("Interactive mode: waiting for input...")
+ var script = ""
  while(true)
  {
   try
   {  
-   var result = eval(read_line())
+   var line = read_line()
+/*
+ Accumulate 
+*/
+   script += line   
+   var result = eval(script)
+/*
+ If we got this far we can go ahead and reset 
+*/
+   script = ""
    if(result !== undefined)
     print(result)
   }
   catch(error)
   {
-   print("Error:", error)
+   var message = error.toString()
+   if(message.search(/end-of-file/))
+    continue
+   print("Error:", message)
    if(error.stackTrace)
     print(error.stackTrace)
   }
