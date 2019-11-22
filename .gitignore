@@ -1,4 +1,6 @@
-*.backup
+*backup*
+*ignore*
+*tmp*
 cosi
 
 # Object files
