@@ -27,7 +27,7 @@ Run in "interpreter" mode:
 
 Execute a script: 
 
-`./cosi examples/typewrite.js` 
+`./cosi examples/typewrite examples/quote.js` 
 
 ## Status
 
