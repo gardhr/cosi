@@ -48,7 +48,7 @@ loop(args, function(idx)
 {
  var arg = args[idx]
  var delay = rand() % 24, 
-  text = file_to_text(arg)
+  text = file_to_text(arg) || file_to_text(arg + ".js")
  if(text)
   typewrite(delay, text)
  else
