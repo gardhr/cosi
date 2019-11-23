@@ -31,7 +31,8 @@ Execute a script:
 
 Execute a script that takes arguments: 
 
-`./cosi examples/typewrite examples/quote.js examples/typewrite.js` 
+`cd examples`
+`../cosi typewrite quote.js ../cosi.js` 
 
 ## Status
 
