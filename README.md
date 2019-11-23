@@ -13,13 +13,17 @@ No installation required.
 
 ```
  git clone https://github.com/gardhr/cosi
- cd cosi
- gcc -o cosi -lm cosi.c
 ```
 
 For single-module projects simply #include "cosi/imbed.c" and compile. Otherwise you'll need to compile everything separately then #include "cosi/cosi.h" and link with "cosi/core.o".
 
 ## Command Line Interpreter and Virtual Machine
+
+```
+ git clone https://github.com/gardhr/cosi
+ cd cosi
+ gcc -o cosi -lm cosi.c
+```
 
 Run in "interpreter" mode: 
 
