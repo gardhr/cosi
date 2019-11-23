@@ -11,11 +11,9 @@ A cross-platform ES5 Javascript (ECMA 262/2015) native runtime C library, virtua
 
 No installation required. 
 
-`git clone https://github.com/gardhr/cosi`
-
-`cd cosi`
-
-`gcc -o cosi -lm cosi.c`
+> git clone https://github.com/gardhr/cosi
+> cd cosi
+> gcc -o cosi -lm cosi.c
 
 For single-module projects simply #include "cosi/imbed.c" and compile. Otherwise you'll need to compile everything separately then #include "cosi/cosi.h" and link with "cosi/core.o".
 
