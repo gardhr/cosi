@@ -31,7 +31,7 @@ Execute a script:
 
 ## Status
 
-I try not to make any breaking changes but of course at this early stage of development that does happen from time to time. At present Cosi seems pretty stable however so that shouldn't be too much a problem in the future. So enjoy!      
+I try not to make any breaking changes but of course at such an early stage of development it does happen sometimes. At this point however Cosi does seem pretty stable and that probably won't be too much a problem in the future. So enjoy!      
 
 ## POSIX support
 
