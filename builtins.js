@@ -294,6 +294,8 @@ function log_display(stream)
    arg = '(null)'
   else if(arg === undefined)
    arg = '(undefined)'
+  else if(arg === "")
+   arg = '(empty)'
   clog(stream, arg.toString())
  }
 }
