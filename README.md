@@ -27,7 +27,11 @@ Run in "interpreter" mode:
 
 Execute a script: 
 
-`./cosi examples/typewrite examples/quote.js` 
+`./cosi examples/typewrite`
+
+Execute a script that takes arguments: 
+
+`./cosi examples/typewrite examples/quote.js examples/typewrite.js` 
 
 ## Status
 
