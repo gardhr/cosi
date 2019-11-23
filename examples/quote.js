@@ -5,7 +5,10 @@ for(var idx in args)
  var name = args[idx]
  var file = fopen(name, "r")
  if(file == NULL)
+ {
+  print("/* Error: could not read file '", name, "' */")
   continue
+ }
  print("/*", name, "*/")
  while(true)
  {
