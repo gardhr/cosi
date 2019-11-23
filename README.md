@@ -904,7 +904,7 @@ DT_SOCK
 
 ## Inherently unsafe C functions which were purposefully excluded:
 
-`gets(char*)`
+`char* gets(char*)`
 
-`tmpnam(char*)`
+`char* tmpnam(char*)`
 
