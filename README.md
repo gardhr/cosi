@@ -32,6 +32,7 @@ Execute a script:
 Execute a script with arguments: 
 
 `cd examples`
+
 `../cosi typewrite "quote.js"` 
 
 ## Status
