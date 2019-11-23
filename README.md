@@ -32,7 +32,7 @@ Execute a script:
 Execute a script that takes arguments: 
 
 `cd examples`
-`../cosi typewrite quote.js ../cosi.js` 
+`../cosi typewrite quote.js` 
 
 ## Status
 
