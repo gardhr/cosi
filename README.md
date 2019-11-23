@@ -29,10 +29,10 @@ Execute a script:
 
 `./cosi examples/typewrite`
 
-Execute a script that takes arguments: 
+Execute a script with arguments: 
 
 `cd examples`
-`../cosi typewrite quote.js` 
+`../cosi typewrite "quote.js"` 
 
 ## Status
 
