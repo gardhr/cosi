@@ -37,7 +37,7 @@ Execute a script with arguments:
 
 ## Status
 
-I try not to make any breaking changes but of course at such an early stage of development it does happen sometimes. At this point however Cosi does seem pretty stable and that probably won't be too much a problem in the future. So enjoy!      
+I try not to make any breaking changes but of course at such an early stage of development it does happen sometimes. Anyway that shouldn't be too much of an issue looking forward. At this point Cosi does seem pretty stable though. So enjoy!      
 
 ## POSIX support
 
