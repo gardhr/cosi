@@ -11,11 +11,11 @@ A cross-platform ES5 Javascript (ECMA 262/2015) native runtime C library, virtua
 
 No installation required. 
 
-> git clone https://github.com/gardhr/cosi
-
-> cd cosi
-
-> gcc -o cosi -lm cosi.c
+```
+ git clone https://github.com/gardhr/cosi
+ cd cosi
+ gcc -o cosi -lm cosi.c
+```
 
 For single-module projects simply #include "cosi/imbed.c" and compile. Otherwise you'll need to compile everything separately then #include "cosi/cosi.h" and link with "cosi/core.o".
 
@@ -23,35 +23,31 @@ For single-module projects simply #include "cosi/imbed.c" and compile. Otherwise
 
 Run in "interpreter" mode: 
 
-> ./cosi 
-
-> Cosi Native Runtime for Javascript
-
-> Usage: cosi script-name script-arg0 ...
-
-> Interactive mode: waiting for input...
-
-> function pi()
-
-> {
-
-> return 4 * atan(1)
-
-> }
-
-> pi()
-
-> 3.141592653589793
+```
+ ./cosi 
+ Cosi Native Runtime for Javascript
+ Usage: cosi script-name script-arg0 ...
+ Interactive mode: waiting for input...
+ function pi()
+ {
+  return 4 * atan(1)
+ }
+ pi()
+ 3.141592653589793
+```
 
 Execute a script: 
 
-> ./cosi examples/typewrite
+```
+ ./cosi examples/typewrite
+```
 
 Execute a script with arguments: 
 
-> cd examples
-
-> ../cosi typewrite "quote.js"
+```
+ cd examples
+ ../cosi typewrite "quote.js"
+```
 
 ## Status
 
