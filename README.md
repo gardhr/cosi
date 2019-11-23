@@ -25,6 +25,26 @@ Run in "interpreter" mode:
 
 `./cosi` 
 
+`Cosi Native Runtime for Javascript`
+
+`Usage: cosi script-name script-arg0 ...`
+
+`Interactive mode: waiting for input...`
+
+`function pi()`
+
+`{`
+
+` return 4 * atan(1)`
+
+`}`
+
+`pi()`
+
+`3.141592653589793`
+
+
+
 Execute a script: 
 
 `./cosi examples/typewrite`
