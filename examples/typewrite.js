@@ -1,29 +1,33 @@
-function tick()
-{
- return clock() / CLOCKS_PER_SEC
-}
+srand(time(NULL))
 
-function wait(delay)
+function typewrite(delay, text)
 {
- var later = tick() + delay
- while(tick() < later)
-  continue
-}
+ 
+ function tick()
+ {
+  return clock() / CLOCKS_PER_SEC
+ }
 
-function typewrite(pace, text)
-{
+ function wait(delay)
+ { 
+  var later = tick() + delay
+  while(tick() < later)
+   continue
+ }
+
  function typebyte(byte)
  {
-  var modulated = pace * (rand() / RAND_MAX)
+  var modulated = delay * (rand() / RAND_MAX)
   putchar(byte)
   fflush(stdout)
   wait(modulated) 
- } 
- if(pace > 1)
-  pace = 1 / pace
+ }
+ 
+ if(delay > 1)
+  delay = 1 / delay
  var combined = "";
- for(var idx = 1; idx < arguments.length; ++idx)
-  combined += arguments[idx]
+ for(var adx = 1; adx < arguments.length; ++adx)
+  combined += arguments[adx]
  var bytes = text_to_bytes(combined) 
  loop(combined, function(idx)
  {
@@ -33,31 +37,20 @@ function typewrite(pace, text)
  free(bytes)
 }
 
-function pick()
-{
- return 1 / (rand() % 24)
-}
-
-function show()
-{
- [].unshift.call(arguments, pick())
- typewrite.apply(null, arguments) 
-}
-
 /*
-  Typewrite yourself!  
+  Typewrite!  
 */
 
-show("~ Self Typing Typewriter ~")
-srand(time(NULL))
 var args = script_arguments()
 if(!args.length)
- args = [pick()]
-var text = file_to_text(script_path())
+ args = [script_path()]
 loop(args, function(idx)
 {
- var pace = Number(args[idx])
- show("*** Script (printed with ", pace, " second delays) ***")
- typewrite(pace, text) 
+ var arg = args[idx]
+ var delay = rand() % 24, 
+  text = file_to_text(arg)
+ if(text)
+  typewrite(delay, text)
+ else
+  typewrite(delay, "Error: cannot load file '", arg, "'") 
 })
-show("Done!")
