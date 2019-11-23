@@ -13,7 +13,7 @@ for(var idx in args)
   if(input == null)
    break
   input = input.replace(/"/g, "\\\"")
-  display("\"", input, "\\n", "\"", "\n") 
+  print("\"", input, "\\n", "\"") 
  }
  fclose(file)
 }
