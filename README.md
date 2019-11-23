@@ -9,7 +9,7 @@ Cosi is a cross-platform ES5 Javascript native runtime C library and interpreter
 
 ## Installation
 
-Cosi requires no installation. For single-module projects simply #include "cosi/imbed.c" and compile. Otherwise you'll need to compile everything separately then #include "cosi/cosi.h" and link with "cosi/core.o".
+No installation required. For single-module projects simply #include "cosi/imbed.c" and compile. Otherwise you'll need to compile everything separately then #include "cosi/cosi.h" and link with "cosi/core.o".
 
 ## Command Line Interpreter and Virtual Machine
 
