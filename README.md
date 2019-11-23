@@ -416,6 +416,7 @@ Returns an array of the environment strings. Returns null if argv has not set by
 
 
 
+`(DEPRECATED)`
 `function clog(stream, pointer)`
 
 Prints a raw C string or String object to a C file stream. No other types are allowed for this low-level function.
@@ -899,4 +900,11 @@ DT_DIR
 DT_REG
 
 DT_SOCK
+
+
+## Inherently unsafe C functions which were purposefully excluded:
+
+`gets(char*)`
+
+`tmpnam(char*)`
 
