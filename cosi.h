@@ -39,16 +39,16 @@ typedef unsigned long js_Instruction;
 // use mujs default //
 #endif 
 #ifndef JS_TRYLIMIT 
-#define JS_TRYLIMIT 1024
+//#define JS_TRYLIMIT 1024
 #endif 
 #ifndef JS_GCLIMIT 
-#define JS_GCLIMIT 100000
+// use mujs default //
 #endif 
 #ifndef JS_ASTLIMIT 
 #define JS_ASTLIMIT 1024
 #endif 
 #ifndef MAXSUB
-#define MAXSUB 32
+// use mujs default //
 #endif 
 #ifndef MAXPROG 
 #define MAXPROG LONG_MAX
