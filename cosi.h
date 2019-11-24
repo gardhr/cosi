@@ -27,10 +27,11 @@ SOFTWARE.
 #ifndef cosi_h_included
 #define cosi_h_included
 
+#ifndef JS_INSTRUCTION
 #define JS_INSTRUCTION
-typedef unsigned js_Instruction;
+typedef unsigned long js_Instruction;
+#endif
 
-/*
 #ifndef JS_STACKSIZE 
 #define JS_STACKSIZE 4096
 #endif 
@@ -61,7 +62,6 @@ typedef unsigned js_Instruction;
 #ifndef MAXCLASS 
 #define MAXCLASS 1024 
 #endif 
-*/
 
 #include "internal.h"
 
