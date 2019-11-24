@@ -14,9 +14,21 @@
 #define nelem(a) (int)(sizeof (a) / sizeof (a)[0])
 
 #define REPINF 255
+#ifndef MAXSUB
 #define MAXSUB REG_MAXSUB
+#endif
+#ifndef MAXPROG
 #define MAXPROG (32 << 10)
+#endif
+#ifndef MAXREC
 #define MAXREC 1024
+#endif
+#ifndef MAXSPANS
+#define MAXSPANS 64
+#endif
+#ifndef MAXCLASS
+#define MAXCLASS 16
+#endif
 
 typedef struct Reclass Reclass;
 typedef struct Renode Renode;
@@ -25,14 +37,14 @@ typedef struct Rethread Rethread;
 
 struct Reclass {
 	Rune *end;
-	Rune spans[64];
+	Rune spans[MAXSPANS];
 };
 
 struct Reprog {
 	Reinst *start, *end;
 	int flags;
 	int nsub;
-	Reclass cclass[16];
+	Reclass cclass[MAXCLASS];
 };
 
 struct cstate {
@@ -194,7 +206,7 @@ static void addrange(struct cstate *g, Rune a, Rune b)
 {
 	if (a > b)
 		die(g, "invalid character class range");
-	if (g->yycc->end + 2 == g->yycc->spans + nelem(g->yycc->spans))
+	if (g->yycc->end + 2 >= g->yycc->spans + nelem(g->yycc->spans))
 		die(g, "too many character class ranges");
 	*g->yycc->end++ = a;
 	*g->yycc->end++ = b;
@@ -280,6 +292,7 @@ static int lexclass(struct cstate *g)
 				save = '-';
 				havesave = 1;
 			}
+
 		} else if (quoted && strchr("DSWdsw", g->yychar)) {
 			if (havesave) {
 				addrange(g, save, save);
