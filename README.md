@@ -900,11 +900,3 @@ DT_DIR
 DT_REG
 
 DT_SOCK
-
-
-## Inherently unsafe C functions which were purposefully excluded:
-
-`char* gets(char*)`
-
-`char* tmpnam(char*)`
-
