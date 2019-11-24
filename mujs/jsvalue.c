@@ -592,12 +592,12 @@ retry:
 
 	if (x->type == JS_TBOOLEAN) {
 		x->type = JS_TNUMBER;
-		x->u.number = x->u.boolean ? 1 : 0;
+		x->u.number = x->u.boolean;
 		goto retry;
 	}
 	if (y->type == JS_TBOOLEAN) {
 		y->type = JS_TNUMBER;
-		y->u.number = y->u.boolean ? 1 : 0;
+		y->u.number = y->u.boolean;
 		goto retry;
 	}
 	if ((JSV_ISSTRING(x) || x->type == JS_TNUMBER) && y->type == JS_TOBJECT) {

@@ -86,7 +86,8 @@ typedef struct js_StackTrace js_StackTrace;
 #endif
 
 /* instruction size -- change to int if you get integer overflow syntax errors */
-#ifndef js_Instruction
+
+#ifndef JS_INSTRUCTION
 typedef unsigned short js_Instruction;
 #endif
 
