@@ -23,8 +23,8 @@
 #ifndef MAXREC
 #define MAXREC 1024
 #endif
-#ifndef MAXSPANS
-#define MAXSPANS 64
+#ifndef MAXSPAN
+#define MAXSPAN 64
 #endif
 #ifndef MAXCLASS
 #define MAXCLASS 16
@@ -37,7 +37,7 @@ typedef struct Rethread Rethread;
 
 struct Reclass {
 	Rune *end;
-	Rune spans[MAXSPANS];
+	Rune spans[MAXSPAN];
 };
 
 struct Reprog {
