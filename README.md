@@ -5,7 +5,7 @@ This software is released under [a dual MIT/ISC license](https://raw.githubuserc
 
 # Cosi (Javascript Native Runtime)
 
-A cross-platform ES5 Javascript (ECMA 262/2015) native runtime C library, virtual machine, and interpreter. Interfaces with most of the ISO C standard API including all of the familiar favorites like NULL, stdin/stdout, INT_MAX, etc. Powered by the MuJS Javascript engine.
+A cross-platform ES5 Javascript (ECMA 262/2015) native runtime C library, virtual machine, and interpreter. Interfaces with most of the ISO C standard API including all of the familiar favorites like NULL, stdin/stdout, INT_MAX, etc. Powered by the [MuJS](https://mujs.com) Javascript engine.
 
 ## Installation
 
@@ -470,6 +470,21 @@ Returns the utf-8 length of a String or raw C pointer.
 Returns the current time and date as a String.
 
 
+`function text_to_array(text)`
+
+Converts a String to an array of utf-8.
+
+
+
+`function array_to_text(array)`
+
+Converts an array of utf-8 to String.
+
+
+
+NOTE: The following functions are only available if cosi_no_posix is not defined.
+
+
 
 `function current_directory()`
 
@@ -495,17 +510,46 @@ Returns a bitmask of the file obtained from the 'readdir' function.
 
 
 
-`function text_to_array(text)`
-
-Converts a String to an array of utf-8.
+`function st_dev(path)`
 
 
+`function st_ino(path)`
 
-`function array_to_text(array)`
+`function st_mode(path)`
 
-Converts an array of utf-8 to String.
+`function S_ISREG(mode)`
 
+`function S_ISDIR(mode)`
 
+`function S_ISCHR(mode)`
+
+`function S_ISBLK(mode)`
+
+`function S_ISFIFO(mode)`
+
+`function S_ISLNK(mode)`
+
+`function S_ISSOCK(mode)`
+
+`function st_nlink(path)`
+
+`function st_uid(path)`
+
+`function st_gid(path)`
+
+`function st_rdev(path)`
+
+`function st_size(path)`
+
+`function st_blksize(path)`
+
+`function st_blocks(path)`
+
+`function st_atime(path)`
+
+`function st_mtime(path)`
+
+`function st_ctime(path)`
 
 ## Implemented C Functions and Constants
 

@@ -216,6 +216,29 @@ cosi_define(J, "DT_DIR", DT_DIR);
 cosi_define(J, "DT_REG", DT_REG);
 cosi_define(J, "DT_SOCK", DT_SOCK);
 
+// sys/stat.h
+
+cosi_extend(J, "st_dev", cosi_st_dev);
+cosi_extend(J, "st_ino", cosi_st_ino);
+cosi_extend(J, "st_mode", cosi_st_mode);
+cosi_extend(J, "S_ISREG", cosi_S_ISREG);
+cosi_extend(J, "S_ISDIR", cosi_S_ISDIR);
+cosi_extend(J, "S_ISCHR", cosi_S_ISCHR);
+cosi_extend(J, "S_ISBLK", cosi_S_ISBLK);
+cosi_extend(J, "S_ISFIFO", cosi_S_ISFIFO);
+cosi_extend(J, "S_ISLNK", cosi_S_ISLNK);
+cosi_extend(J, "S_ISSOCK", cosi_S_ISSOCK);
+cosi_extend(J, "st_nlink", cosi_st_nlink);
+cosi_extend(J, "st_uid", cosi_st_uid);
+cosi_extend(J, "st_gid", cosi_st_gid);
+cosi_extend(J, "st_rdev", cosi_st_rdev);
+cosi_extend(J, "st_size", cosi_st_size);
+cosi_extend(J, "st_blksize", cosi_st_blksize);
+cosi_extend(J, "st_blocks", cosi_st_blocks);
+cosi_extend(J, "st_atime", cosi_st_atime);
+cosi_extend(J, "st_mtime", cosi_st_mtime);
+cosi_extend(J, "st_ctime", cosi_st_ctime);
+
 #endif
 
 // global pointers

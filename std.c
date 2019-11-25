@@ -905,6 +905,156 @@ void
  js_pushundefined(J); 
 }
 
+typedef struct stat sstat;
+
+struct stat cosi_stat(const char* path)
+{
+ struct stat info;
+ if(stat(path, &info) != 0)
+  memset(&info, 0, sizeof(info));
+ return info; 
+}
+
+void
+ cosi_st_dev(js_State* J)
+{
+ char* path = cosi_tostring(J, 1);
+ js_pushnumber(J, cosi_stat(path).st_dev); 
+}
+
+void
+ cosi_st_ino(js_State* J)
+{
+ char* path = cosi_tostring(J, 1);
+ js_pushnumber(J, cosi_stat(path).st_ino); 
+}
+
+void
+ cosi_st_mode(js_State* J)
+{
+ char* path = cosi_tostring(J, 1);
+ js_pushnumber(J, cosi_stat(path).st_mode); 
+}
+
+void
+ cosi_S_ISREG(js_State* J)
+{
+ int st_mode = js_tonumber(J, 1);
+ js_pushboolean(J, S_ISREG(st_mode)); 
+}
+
+void
+ cosi_S_ISDIR(js_State* J)
+{
+ int st_mode = js_tonumber(J, 1);
+ js_pushboolean(J, S_ISDIR(st_mode)); 
+}
+
+void
+ cosi_S_ISCHR(js_State* J)
+{
+ int st_mode = js_tonumber(J, 1);
+ js_pushboolean(J, S_ISCHR(st_mode)); 
+}
+
+void
+ cosi_S_ISBLK(js_State* J)
+{
+ int st_mode = js_tonumber(J, 1);
+ js_pushboolean(J, S_ISBLK(st_mode)); 
+}
+
+void
+ cosi_S_ISFIFO(js_State* J)
+{
+ int st_mode = js_tonumber(J, 1);
+ js_pushboolean(J, S_ISFIFO(st_mode)); 
+}
+
+void
+ cosi_S_ISLNK(js_State* J)
+{
+ int st_mode = js_tonumber(J, 1);
+ js_pushboolean(J, S_ISLNK(st_mode)); 
+}
+
+void
+ cosi_S_ISSOCK(js_State* J)
+{
+ int st_mode = js_tonumber(J, 1);
+ js_pushboolean(J, S_ISSOCK(st_mode)); 
+}
+
+void
+ cosi_st_nlink(js_State* J)
+{
+ char* path = cosi_tostring(J, 1);
+ js_pushnumber(J, cosi_stat(path).st_nlink); 
+}
+
+void
+ cosi_st_uid(js_State* J)
+{
+ char* path = cosi_tostring(J, 1);
+ js_pushnumber(J, cosi_stat(path).st_uid); 
+}
+
+void
+ cosi_st_gid(js_State* J)
+{
+ char* path = cosi_tostring(J, 1);
+ js_pushnumber(J, cosi_stat(path).st_gid); 
+}
+
+void
+ cosi_st_rdev(js_State* J)
+{
+ char* path = cosi_tostring(J, 1);
+ js_pushnumber(J, cosi_stat(path).st_rdev); 
+}
+
+void
+ cosi_st_size(js_State* J)
+{
+ char* path = cosi_tostring(J, 1);
+ js_pushnumber(J, cosi_stat(path).st_size); 
+}
+
+void
+ cosi_st_blksize(js_State* J)
+{
+ char* path = cosi_tostring(J, 1);
+ js_pushnumber(J, cosi_stat(path).st_blksize); 
+}
+
+void
+ cosi_st_blocks(js_State* J)
+{
+ char* path = cosi_tostring(J, 1);
+ js_pushnumber(J, cosi_stat(path).st_blocks); 
+}
+
+void
+ cosi_st_atime(js_State* J)
+{
+ char* path = cosi_tostring(J, 1);
+ js_pushnumber(J, cosi_stat(path).st_atime); 
+}
+
+void
+ cosi_st_mtime(js_State* J)
+{
+ char* path = cosi_tostring(J, 1);
+ js_pushnumber(J, cosi_stat(path).st_mtime); 
+}
+
+void
+ cosi_st_ctime(js_State* J)
+{
+ char* path = cosi_tostring(J, 1);
+ js_pushnumber(J, cosi_stat(path).st_ctime); 
+}
+
 // unistd.h
 
 void

@@ -28,6 +28,7 @@ SOFTWARE.
 #define cosi_includes_h_included
 
 #ifndef cosi_no_posix
+#include "sys/stat.h"
 #include "dirent.h"
 #include "unistd.h"
 #endif
