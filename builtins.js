@@ -169,7 +169,7 @@ function file_to_bytes(source)
  if(error)
  {
   free(data)
-  data = NULL
+  data = packed ? null : NULL
  }
  if(fp)
   fclose(fp)
@@ -198,7 +198,7 @@ function bytes_to_file(bytes, file, len)
 function file_to_text(file)
 {
  var source = file_to_bytes({ file : file })
- if(source == NULL)
+ if(source == null)
   return null
  var 
   bytes = source.bytes,
