@@ -1,3 +1,13 @@
+var config = null, 
+ format = 
+ {
+  compile: "gcc -lm -o cosi cosi.c", 
+  clean: "",
+  test: "./cosi",
+  cosi_path: "", 
+  bin_path: ""
+ }
+
 function char(text)
 {
  return text.charCodeAt(0)
@@ -6,25 +16,6 @@ function char(text)
 function empty(text)
 {
  return text == null || text == ""
-}
-
-function object_to_file(object, file)
-{
- var flg = false, dsc = "{"
- for(var key in object)
- {
-  if(flg)
-   dsc += ","
-  else
-   flg = true
-  dsc += "\n"  
-  var qot = "'", mem = object[key]
-  if(typeof(mem) === "string")
-   mem = qot + mem + qot
-  dsc += " " + key + " : " + mem
- }
- dsc += "\n}"
- return text_to_file(dsc, file)
 }
 
 function confirm(message)
@@ -37,25 +28,29 @@ function confirm(message)
 function backup(file)
 {
  var data = file_to_bytes({ file: file })
- if(data == null)
+ if(!data)
   return print("Warning: failed to read file", file) 
- var copy = file + ".backup",
+ var copy = "backup." + file,
   bytes = data.bytes, 
   length = data.length
  if(!bytes_to_file(bytes, copy, length))
   print("Warning: cannot create backup of `" + file + "`")
  else 
-  print("Note: made backup file `" + copy + "`")
+  print("Note: made backup file `" + copy + "`") 
  free(bytes)
 }
 
-print("Cosi Build Script")
-var config = null
+function update()
+{
+ if(!text_to_file(JSON.stringify(config, null, "\n"), "config.js"))
+  print("Warning: cannot update `config.js`")
+}
+
 function aquire(key, message)
 {
  function see(text)
  {  
-  return empty(text) ? "undefined" : text
+  return empty(text) ? "not set" : text
  }
  var preset = config[key]
  var result = prompt
@@ -67,46 +62,40 @@ function aquire(key, message)
  )
  || 
   preset
- if(result == " ") 
-  result = "" 
+// if(result == " ") 
+//  result = "" 
  print(message, "is", see(result))
  return config[key] = result
 }
-var format = 
+
+function incompatible(object, control)
 {
- compile: "gcc -lm -o cosi cosi.c", 
- clean: "",
- test: "./cosi",
- cosi_path: "", 
- bin_path: "",
- interactive: true
-}
-function incompatible()
-{
- for(var key in format)
-  if(typeof(config[key]) === "undefined")
+ for(var key in control)
+  if(typeof(object[key]) === "undefined")
    return true
  return false
 }
-contain(function()
-{ 
- config = file_to_object("config.js") 
-})
-if(config == null || incompatible())
- config = format
-if(config.interactive)
+
+print("Cosi Build Script")
+//contain(function(){ 
+config = file_to_object("config.js") 
+//})
+if(config == null || 
+ incompatible(config, format))
 {
- aquire("interactive", "Always in interactive mode") 
- config.interactive = 
-  (config.interactive !== "false") 
+ print("Fixing invalid configuration...")
+ config = format
+ update()
+}
+if(confirm("Enter interactive mode?"))
+{
  aquire("cosi_path", "Path to cosi")
  aquire("bin_path", "System `bin` directory")
  aquire("clean", "Cleanup command") 
  aquire("compile", "Compile command") 
  aquire("test", "Test command") 
  if(confirm("Update config file with these settings?"))
-  if(!object_to_file(config, "config.js"))
-   print("Warning: cannot create `config.js`")
+  update()
 }
 backup("cosi.txt")
 backup("builtins.txt")

@@ -277,6 +277,33 @@ function file_to_object(file)
  return text_to_object(file_to_text(file), imports)
 }
 
+/* FIXME */
+/*
+function object_to_text(object)
+{
+ var flg = false, dsc = "{"
+ for(var key in object)
+ {
+  if(flg)
+   dsc += ","
+  else
+   flg = true
+  dsc += "\n"  
+  var mem = object[key]
+  if(typeof(mem) === "string")
+   mem = "'" + mem + "'"
+  dsc += " " + key + " : " + mem
+ }
+ dsc += "\n}"
+ return dsc
+}
+
+function object_to_file(object, file)
+{
+ return text_to_file(object_to_text(object), file)
+}
+*/
+
 /*
  Input and output
 */
@@ -294,8 +321,6 @@ function log_display(stream)
    arg = '(null)'
   else if(arg === undefined)
    arg = '(undefined)'
-  else if(arg === "")
-   arg = '(empty)'
   clog(stream, arg.toString())
  }
 }

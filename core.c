@@ -210,7 +210,7 @@ const char*
 "";
 
 if(!cosi_run(J, builtins))
- fprintf(stderr, "ERROR: failed to load file 'cosi_builtins.txt'\n");
+ fprintf(stderr, "ERROR: failed to load file 'builtins.txt'\n");
 
 /*
  That was automatically
