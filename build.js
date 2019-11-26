@@ -62,8 +62,6 @@ function aquire(key, message)
  )
  || 
   preset
-// if(result == " ") 
-//  result = "" 
  print(message, "is", see(result))
  return config[key] = result
 }
@@ -77,9 +75,7 @@ function incompatible(object, control)
 }
 
 print("Cosi Build Script")
-//contain(function(){ 
 config = file_to_object("config.js") 
-//})
 if(config == null || 
  incompatible(config, format))
 {
