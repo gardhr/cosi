@@ -120,7 +120,7 @@ if(!confirm("\nProceed?"))
 for(var cdx = 0; cdx < commands.length; ++cdx)
  if(!empty(commands[cdx]))
   system(commands[cdx])
-var cbd = config.bin_path
-if(!empty(cbd))
- backup(cbd + "/cosi")
+var cbp = config.bin_path
+if(!empty(cbp))
+ backup(cbp + "/cosi")
 print("Done.")
