@@ -99,15 +99,15 @@ var prefix = config.cosi_path
 if(!empty(prefix))
  prefix += "/"
 var quote_js = prefix + "cosi examples/quote ",
- backup_builtins = quote_js + 
+ imbed_builtins = quote_js + 
   "builtins.js > builtins.txt",
- backup_interpreter = quote_js + 
+ imbed_interpreter = quote_js + 
   "cosi.js > cosi.txt",
  commands = 
  [
   config.clean,
-  backup_builtins,
-  backup_interpreter,
+  imbed_builtins,
+  imbed_interpreter,
   config.compile,
   config.test
  ]
