@@ -5,7 +5,7 @@ This software is released under [a dual MIT/ISC license](https://raw.githubuserc
 
 # Cosi (Javascript Native Runtime)
 
-Cross-platform ES5 Javascript (ECMA 262/2015) native runtime C library, virtual machine, and interpreter. Interfaces with most of the ISO C standard API including all of the familiar favorites like NULL, stdin/stdout, INT_MAX, etc. Powered by the [MuJS](https://mujs.com) Javascript engine.
+Cross-platform Javascript (ECMA 262/2015/ES5) native runtime C library, virtual machine, and interpreter. Interfaces with most of the ISO C standard API including all of the familiar favorites like NULL, stdin/stdout, INT_MAX, etc. Powered by the [MuJS](https://mujs.com) Javascript engine.
 
 ## Installation
 
