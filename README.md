@@ -5,7 +5,8 @@ This software is released under [a dual MIT/ISC license](https://raw.githubuserc
 
 # Cosi (Javascript Native Runtime)
 
-Cross-platform Javascript (ECMA 262/2015/ES5) native runtime C library, virtual machine, and interpreter. Interfaces with most of the ISO C standard API including all of the familiar favorites like NULL, stdin/stdout, INT_MAX, etc. Powered by the [MuJS](https://mujs.com) Javascript engine.
+A cross-platform Javascript (ECMA 262/2015/ES5) native runtime C library, virtual machine, and interpreter. Interfaces with most of the ISO C standard API including all of the familiar favorites like NULL, stdin/stdout, INT_MAX, etc. Powered by the [MuJS](https://mujs.com) Javascript engine.
+
 
 ## Installation
 
@@ -56,7 +57,7 @@ Execute a script with arguments:
 
 ## Status
 
-I try not to make any breaking changes but of course at such an early stage of development it does happen sometimes. Anyway it shouldn't be too much of an issue looking forward. At this point Cosi seems pretty stable. So enjoy!      
+Cosi has finally reached the point of being stable. All of the kinks have started to work themselves out and thankfully the project remains to be very lightweight (currently less than 200K!). Enjoy!  
 
 ## POSIX support
 
@@ -945,3 +946,4 @@ DT_DIR
 DT_REG
 
 DT_SOCK
+    
