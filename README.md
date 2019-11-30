@@ -22,7 +22,7 @@ For single-module projects simply #include "cosi/imbed.c" and compile. Otherwise
 ```
  git clone https://github.com/gardhr/cosi
  cd cosi
- gcc -o cosi -lm cosi.c
+ gcc -lm -o cosi cosi.c
 ```
 
 Run in "interpreter" mode: 
@@ -38,6 +38,7 @@ Run in "interpreter" mode:
  }
  pi()
  3.141592653589793
+ exit()
 ```
 
 Execute a script: 
