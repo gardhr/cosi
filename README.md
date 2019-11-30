@@ -61,7 +61,7 @@ Cosi has finally reached the point of being stable. All of the kinks have starte
 
 ## POSIX support
 
-Cosi is slowly starting to adopt POSIX functionality. If you just don't want any of those features then just be sure to "#define cosi_no_posix". 
+If you don't want any of the POSIX features be sure to "#define cosi_no_posix". 
     
 ## Caveats
 
