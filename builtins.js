@@ -34,6 +34,32 @@ var imports = {}
  Utilities
 */
 
+function char(text, index)
+{ 
+ return text.charCodeAt(index | 0)
+}
+
+function text(code)
+{ 
+ return String.fromCharCode(code)
+}
+
+function text_to_array(text)
+{
+ var arr = []
+ for(var tdx = 0, len = text.length; tdx < len; ++tdx)
+  arr.push(char(text, tdx))  
+ return arr
+}
+
+function array_to_text(array)
+{ 
+ var txt = ""
+ for(var tdx = 0, len = array.length; tdx < len; ++tdx)
+  txt += text(array[tdx])  
+ return txt
+}
+
 function escape(exception)
 { 
  if(exception)
@@ -123,8 +149,7 @@ function loop(control, action)
  return result
 }
 
-/*
- https://stackoverflow.com/questions/5515869/string-length-in-bytes-in-javascript
+/* https://stackoverflow.com/questions/5515869/string-length-in-bytes-in-javascript
 */
 
 function utf_strlen(text)
@@ -222,6 +247,21 @@ function text_to_function(script, imports)
 {
  if(!script)
   return null
+ var hash = char("#"), 
+  bang = char("!"),
+  idx = 0, 
+  len = script.length
+ while(idx < len && isspace(char(script, idx)))
+  ++idx
+ if(len - idx >= 2)
+ {
+  if
+  (
+   char(script, idx) == hash && 
+   char(script, idx + 1) == bang
+  )
+   script = "//" + script
+ }
  var result = null
  contain(function(){
   var bundled = 
@@ -466,20 +506,4 @@ function process_directory(directory, callback)
   closedir(handle)
  }
  chdir(saved)
-}
-
-function text_to_array(text)
-{
- var arr = []
- for(var tdx = 0, len = text.length; tdx < len; ++tdx)
-  arr.push(text.charCodeAt(tdx))  
- return arr
-}
-
-function array_to_text(array)
-{ 
- var txt = ""
- for(var tdx = 0, len = array.length; tdx < len; ++tdx)
-  txt += String.fromCharCode(array[tdx])  
- return txt
 }
