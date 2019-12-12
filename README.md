@@ -53,11 +53,7 @@ Execute a script with arguments:
 ```
  cd examples
  ../cosi typewrite "quote.js"
-```
-
-## Status
-
-Cosi has finally reached the point of being stable. All of the kinks have started to work themselves out and thankfully the project remains to be very lightweight (currently less than 200K!).  
+``` 
 
 ## POSIX support
 
