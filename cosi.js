@@ -52,9 +52,9 @@ if(args.length == 0)
   catch(error)
   {
    var message = error.toString()
+   print("Error:", message)
    if(message.search(/end-of-file/))
     continue
-   print("Error:", message)
    if(error.stackTrace)
     print(error.stackTrace)
   }
