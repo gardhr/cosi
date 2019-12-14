@@ -1,4 +1,4 @@
-/* Thu Dec 12 13:38:37 2019 */
+/* Fri Dec 13 22:55:47 2019 */
 /* cosi.js */
 " /* \n "
 " MIT License \n "
@@ -66,9 +66,9 @@
 "   catch(error) \n "
 "   { \n "
 "    var message = error.toString() \n "
+"    print(\"Error:\", message) \n "
 "    if(message.search(/end-of-file/)) \n "
 "     continue \n "
-"    print(\"Error:\", message) \n "
 "    if(error.stackTrace) \n "
 "     print(error.stackTrace) \n "
 "   } \n "
