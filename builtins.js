@@ -386,14 +386,13 @@ function print()
 function read_line(stream)
 {
  var sum = 0
- var size = 64
+ var size = 4
  var data = NULL
  var newline = 0xa
  if(!stream)
   stream = stdin
  var pass = loop(true, function() {
-  var 
-   max = size
+  var max = size
   size *= 2
   var block = realloc(data, size + 1)
   if(block == NULL)
@@ -401,16 +400,16 @@ function read_line(stream)
   data = block
   var 
    line = data + sum
-  if(!fgets(line, max, stream))
-   return sum != 0
+  if(!fgets(line, max + 1, stream))
+   return sum
   var 
-   length = utf_strlen(line),
+   length = strlen(line),
    last = length - 1 
   if(get_byte(line, last) == newline) 
    set_byte(line, last--, 0)
   sum += (last + 1)
   if(length != max)
-   return true
+   return sum
  })
  if(!pass)
  {
