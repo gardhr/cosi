@@ -52,11 +52,15 @@ if(args.length == 0)
   catch(error)
   {
    var message = error.toString()
-   print("Error:", message)
-   if(message.search(/end-of-file/))
+   if(message.search("end-of-file") >= 0)
     continue
+   print("Error:", message)
    if(error.stackTrace)
     print(error.stackTrace)
+/*
+ Reset on error 
+*/
+   script = ""
   }
  }
 }
