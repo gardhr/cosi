@@ -67,6 +67,7 @@ cosi_extend(J, "text_to_bytes", cosi_text_to_bytes);
 cosi_extend(J, "envp", cosi_envp);
 cosi_extend(J, "argv", cosi_argv);
 cosi_extend(J, "timestamp", cosi_timestamp);
+cosi_extend(J, "path_exists", cosi_path_exists);
 
 //stdio.h
 

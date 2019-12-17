@@ -916,6 +916,14 @@ struct stat cosi_stat(const char* path)
 }
 
 void
+ cosi_path_exists(js_State* J)
+{
+ char* path = cosi_tostring(J, 1);
+ struct stat info;
+ js_pushboolean(J, stat(path, &info) == 0);
+}
+
+void
  cosi_st_dev(js_State* J)
 {
  char* path = cosi_tostring(J, 1);

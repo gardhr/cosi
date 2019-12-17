@@ -495,6 +495,10 @@ Returns the current working directory.
 Traverses a directory recursively. The second parameter can either be a single function to be applied to each file OR an object containing one or more of the following functions: process, enter, leave. The first is applied to all files and the last two are applied to the directory itself. 
 
 
+`function path_exists(path)`
+
+Path may be a file, directory, link, etc...
+
 
 `function dirent_name(dirent)`
 
