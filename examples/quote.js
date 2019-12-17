@@ -1,4 +1,4 @@
-function read_line(stream)
+function read_line____(stream)
 {
  if(!stream)
   stream = stdin
