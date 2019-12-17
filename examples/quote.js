@@ -1,3 +1,10 @@
+String.prototype.trimEnd = String.prototype.trimRight = function()
+{
+ var trm = this.trim();	
+ var led = this.indexOf(trm);	
+ return this.slice(0, trm.length + led);
+}
+
 print("/*", timestamp(), "*/")
 var args = script_arguments()
 for(var idx in args)
@@ -16,7 +23,7 @@ for(var idx in args)
   if(input == null)
    break
   input = input.replace(/"/g, "\\\"")
-  print("\"", input, "\\n", "\"") 
+  print("\"", input.trimEnd(), "\\n", "\"") 
  }
  fclose(file)
 }

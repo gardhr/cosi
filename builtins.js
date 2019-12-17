@@ -497,3 +497,17 @@ function process_directory(directory, callback)
  }
  chdir(saved)
 }
+
+String.prototype.trimEnd = String.prototype.trimRight = function()
+{
+ var trm = this.trim();	
+ var led = this.indexOf(trm);	
+ return this.slice(0, trm.length + led);
+}
+
+String.prototype.trimFront = String.prototype.trimLeft = function()
+{
+ var trm = this.trim();	
+ var led = this.indexOf(trm);	
+ return this.slice(led, trm.length - led);
+}
