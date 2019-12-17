@@ -1,4 +1,4 @@
-/* Tue Dec 17 12:03:36 2019 */
+/* Tue Dec 17 12:18:26 2019 */
 /* builtins.js */
 " /* \n "
 " MIT License \n "
@@ -249,6 +249,9 @@
 " { \n "
 "  if(!script) \n "
 "   return null \n "
+" /*  \n "
+"  Kludge to support the shell hashbang sequence \n "
+" */ \n "
 "  var hash = char(\"#\"),  \n "
 "   bang = char(\"!\"), \n "
 "   idx = 0,  \n "

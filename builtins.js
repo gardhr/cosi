@@ -247,6 +247,9 @@ function text_to_function(script, imports)
 {
  if(!script)
   return null
+/* 
+ Kludge to support the shell hashbang sequence
+*/
  var hash = char("#"), 
   bang = char("!"),
   idx = 0, 
