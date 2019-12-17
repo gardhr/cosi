@@ -498,6 +498,16 @@ function process_directory(directory, callback)
  chdir(saved)
 }
 
+function file_exists(path)
+{
+ return S_ISREG(st_mode(path))
+}
+
+function directory_exists(path)
+{
+ return S_ISDIR(st_mode(path))
+}
+
 String.prototype.trimEnd = String.prototype.trimRight = function()
 {
  var trm = this.trim();	
