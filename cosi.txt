@@ -1,4 +1,4 @@
-/* Tue Dec 17 12:01:01 2019 */
+/* Tue Dec 17 12:03:36 2019 */
 /* cosi.js */
 " /* \n "
 " MIT License \n "
@@ -57,7 +57,8 @@
 "    if(message.search(\"end-of-file\") >= 0) \n "
 "     continue \n "
 "    print(\"Error:\", message) \n "
-"    if(error.stackTrace)    print(error.stackTrace) \n "
+"    if(error.stackTrace) \n "
+"     print(error.stackTrace) \n "
 " /* \n "
 "  Reset on error  \n "
 " */ \n "
