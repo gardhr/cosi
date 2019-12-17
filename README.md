@@ -42,6 +42,8 @@ Run in "interpreter" mode:
  exit()
 ```
 
+Please note, the interpreter does not yet handle special keystrokes (arrow keys and such). 
+
 Execute a script: 
 
 ```
@@ -58,6 +60,15 @@ Execute a script with arguments:
 ## POSIX support
 
 If you don't want any of the POSIX features be sure to "#define cosi_no_posix". 
+
+## Hashbangs
+
+Cosi now supports the shell declarative at the beginning of scripts:
+
+```
+#! usr/bin/cosi
+print("Hello world!")
+```
     
 ## Caveats
 
@@ -497,7 +508,14 @@ Traverses a directory recursively. The second parameter can either be a single f
 
 `function path_exists(path)`
 
+
 Path may be a file, directory, link, etc...
+
+
+`function file_exists(path)`
+
+
+`function directory_exists(path)`
 
 
 `function dirent_name(dirent)`
