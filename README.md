@@ -10,7 +10,7 @@ A cross-platform Javascript (ECMA 262/2015/ES5) native runtime C library, virtua
 
 ## Installation
 
-No installation required. 
+No installation required. Entire library is currently somewhat less than 175K, compressed.
 
 ```
  git clone https://github.com/gardhr/cosi
