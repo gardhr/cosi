@@ -4,7 +4,6 @@ String.prototype.trimEnd = String.prototype.trimRight = function()
  var led = this.indexOf(trm);	
  return this.slice(0, trm.length + led);
 }
-
 print("/*", timestamp(), "*/")
 var args = script_arguments()
 for(var idx in args)
