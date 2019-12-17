@@ -385,38 +385,26 @@ function print()
 
 function read_line(stream)
 {
- var sum = 0
- var size = 4
- var data = NULL
- var newline = 0xa
  if(!stream)
   stream = stdin
- var pass = loop(true, function() {
-  var max = size
-  size *= 2
-  var block = realloc(data, size + 1)
-  if(block == NULL)
-   return false
-  data = block
-  var 
-   line = data + sum
-  if(!fgets(line, max + 1, stream))
-   return sum
-  var 
-   length = strlen(line),
-   last = length - 1 
-  if(get_byte(line, last) == newline) 
-   set_byte(line, last--, 0)
-  sum += (last + 1)
-  if(length != max)
-   return sum
- })
- if(!pass)
+ var newline = 0xa,
+  res = "",
+  max = 32, 
+  siz = max + 1, 
+  buf = read_line.buf
+ if(!buf)
+  buf = read_line.buf = malloc(siz)
+ while(true)
  {
-  free(data)
-  return null 
+  if(!fgets(buf, siz, stream))
+   return res.length == 0 ? null : res
+  var len = strlen(buf), lst = len ? len - 1 : 0 
+  if(get_byte(buf, lst) == newline)
+   set_byte(buf, len = lst, 0)
+  res += bytes_to_text(buf)
+  if(len != max)
+   return res
  }
- return bytes_to_text(data)  
 }
 
 function prompt()

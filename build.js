@@ -1,16 +1,11 @@
 var config = null, 
  format = 
- {
-  compile: "gcc -lm -o cosi cosi.c", 
-  clean: "",
-  test: "./cosi",
-  cosi_path: "", 
-  bin_path: ""
- }
-
-function char(text)
 {
- return text.charCodeAt(0)
+ compile: "gcc -lm -o cosi cosi.c", 
+ clean: "",
+ test: "./cosi",
+ cosi_path: "", 
+ bin_path: ""
 }
 
 function empty(text)
@@ -21,7 +16,7 @@ function empty(text)
 function confirm(message)
 {
  var yes = char("y"),  
-  choice = tolower(char(prompt(message, "[y/n]\n>"))) 
+  choice = tolower(char(prompt(message, "[y/n]\n>") || "")) 
  return choice == yes
 }
 
@@ -60,8 +55,8 @@ function aquire(key, message)
   see(preset) + 
   ")\n>"
  )
- || 
-  preset
+ if(empty(prompt))
+  prompt = preset
  print(message, "is", see(result))
  return config[key] = result
 }
