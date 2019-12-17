@@ -57,10 +57,6 @@ Execute a script with arguments:
  ../cosi typewrite quote.js
 ``` 
 
-## POSIX support
-
-If you don't want any of the POSIX features be sure to "#define cosi_no_posix". 
-
 ## Hashbangs
 
 Cosi now supports the shell declarative at the beginning of scripts:
@@ -69,6 +65,48 @@ Cosi now supports the shell declarative at the beginning of scripts:
 #! usr/bin/cosi
 print("Hello world!")
 ```
+
+## Creating Modules
+
+Using node.js syntax:
+
+```
+function once(value)
+{
+ return value
+}
+if(typeof(module) !== "undefined")
+ module.exports = once
+```
+
+Returning directly:
+
+```
+function twice(value)
+{
+ return value + value
+}
+return twice
+```
+
+Returning directly as a tuple:
+
+```
+[...]
+function thrice(value)
+{
+ return twice(value) + once(value)
+}
+return { // <- Curly brace MUST be on this line!
+ once: once, 
+ twice : twice, 
+ thrice: thrice 
+}
+```
+
+## POSIX support
+
+If you don't want any of the POSIX features be sure to "#define cosi_no_posix". 
     
 ## Caveats
 
