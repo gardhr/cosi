@@ -11,9 +11,9 @@ if(ags.length == 0)
 } 
 for(var adx in ags)
 {
- var file = ags[adx]
- print(tag, "File:", file)
- var txt = file_to_text(file)
+ var fil = ags[adx]
+ print(tag, "File:", fil)
+ var txt = file_to_text(fil)
  if(txt == null)
  {
   print(tag, "Error: cannot open file")
