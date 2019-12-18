@@ -1,5 +1,14 @@
-var tag = "[batch]"
-var ags = script_arguments()
+var tag = "[batch]", ags = script_arguments()
+if(ags.length == 0)
+{
+ return print
+ (
+  tag, 
+  "Usage:", 
+  script_path(), 
+  "[file(s)...]"
+ )
+} 
 for(var adx in ags)
 {
  var file = ags[adx]
@@ -24,7 +33,8 @@ for(var adx in ags)
    (
     tag, 
     "Failed (status code: " + 
-     res.toString() + ") - bailing out!"
+     res.toString() + 
+     ") - bailing out!"
    )
   }
  }
