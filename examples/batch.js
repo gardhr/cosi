@@ -13,7 +13,7 @@ for(var adx in ags)
  var lst = txt.split("\n")
  for(var ldx in lst)
  {
-  var cmd = lst[ldx]
+  var cmd = lst[ldx].trim()
   if(cmd == "")
    continue
   print(tag, "Run: `" + cmd + "`")
