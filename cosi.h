@@ -28,7 +28,7 @@ SOFTWARE.
 #define cosi_h_included
 
 #ifndef JS_INSTRUCTION
-#define JS_INSTRUCTION unsigned long
+#define JS_INSTRUCTION long
 #endif
 
 #ifndef JS_STACKSIZE 
