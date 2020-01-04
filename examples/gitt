@@ -5,7 +5,7 @@ if(message.length == 0)
 print("Git commit message: \"" + message + "\"")
 print("Currently @", current_directory())
 var repo = prompt(
- "Select repo (press `enter` to use this folder):")
+ "Select repo (or press `enter` to use this one):")
 if(repo.length != 0)
  if(chdir(repo) != 0)
   return print("Error: invalid path")
