@@ -1,0 +1,14 @@
+#! /usr/bin/cosi
+var message = prompt("Git commit message:")
+if(message.length == 0)
+ message = "update"
+print("Git commit message: \"" + message + "\"")
+print("Currently @", current_directory())
+var repo = prompt(
+ "Select repo (press `enter` to use this folder):")
+if(repo.length != 0)
+ if(chdir(repo) != 0)
+  return print("Error: invalid path")
+system("git add .")
+system("git commit -m '" + message + "'")
+system("git push")
