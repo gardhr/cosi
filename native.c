@@ -80,6 +80,8 @@ void
  cosi_bytes_to_text(js_State* state)
 {
  char* data = cosi_topointer(state, 1);
+ js_pushstring(state, data);
+/*
  if(data == NULL)
  {
   js_pushnull(state);
@@ -93,6 +95,7 @@ void
  copy[size] = 0;
  js_pushstring(state, copy);
  free(copy);
+*/
 }
 
 void
