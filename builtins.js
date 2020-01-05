@@ -423,14 +423,14 @@ function script_arguments(skip_first)
  if(args == NULL)
   return null
  var tab = []
- if(get_memory(args) == NULL)
+ if(get_pointer(args) == NULL)
   return tab
  var align = sizeof('void*')
  if(skip_first !== false)
   args += align
  for(;;)
  {
-  var ptr = get_memory(args)
+  var ptr = get_pointer(args)
   if(ptr == NULL)
    break
   tab.push(bytes_to_text(ptr))
@@ -448,7 +448,7 @@ function script_environment()
  var align = sizeof('void*')
  for(;;)
  {
-  var ptr = get_memory(args)
+  var ptr = get_pointer(args)
   if(ptr == NULL)
    break
   tab.push(bytes_to_text(ptr))
@@ -462,7 +462,7 @@ function script_path()
  var args = argv()
  if(!args)
   return null
- return bytes_to_text(get_memory(args))
+ return bytes_to_text(get_pointer(args))
 }
 
 function process_directory(directory, callback)
