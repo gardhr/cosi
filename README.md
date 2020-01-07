@@ -71,6 +71,8 @@ print("Hello world!")
 Using node.js syntax:
 
 ```
+// once.js
+
 function once(value)
 {
  return value
@@ -82,11 +84,12 @@ if(typeof(module) !== "undefined")
 Returning directly:
 
 ```
-function twice(value)
+// twice.js
+
+return function(value)
 {
  return value + value
 }
-return twice
 ```
 
 Returning directly as a tuple:
@@ -95,7 +98,8 @@ Returning directly as a tuple:
 [...]
 function thrice(value)
 {
- return twice(value) + once(value)
+ return file_to_module("once.js")(value) + 
+  file_to_module("twice.js")(value)
 }
 return { // <- Curly brace MUST be on this line!
  once: once, 
