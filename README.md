@@ -71,8 +71,6 @@ print("Hello world!")
 Using node.js syntax:
 
 ```
-// once.js
-
 function once(value)
 {
  return value
