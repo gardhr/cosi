@@ -110,6 +110,13 @@ return { // <- Curly brace MUST be on this line!
 }
 ```
 
+Including a file directly:
+
+```
+include("thrice.js")
+print(thrice(5))
+```
+
 ## POSIX support
 
 If you don't want any of the POSIX features be sure to "#define cosi_no_posix". 
