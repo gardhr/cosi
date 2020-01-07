@@ -96,9 +96,11 @@ Returning directly as a tuple:
 
 ```
 [...]
+var once = file_to_module("once.js")
+var twice = file_to_module("twice.js")
 function thrice(value)
 {
- return file_to_module("once.js")(value) + 
+ return once(value) + 
   file_to_module("twice.js")(value)
 }
 return { // <- Curly brace MUST be on this line!
